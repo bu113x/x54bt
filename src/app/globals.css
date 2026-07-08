@@ -14,13 +14,13 @@
 
 :root {
   /* ---- Binance-derived raw scale ---- */
-  --gold-500: #f0b90b;   /* Buttercup - primary brand gold */
-  --gold-400: #fcd535;   /* Brighter gold - hover/highlight state */
-  --shark-950: #0c0e12;  /* Deepest background */
-  --shark-900: #1e2329;  /* Card / surface background */
-  --shark-800: #2b3139;  /* Elevated surface, borders */
-  --shark-700: #474d57;  /* Muted borders, dividers */
-  --shark-400: #848e9c;  /* Muted / secondary text */
+  --gold-500: #f0b90b; /* Buttercup - primary brand gold */
+  --gold-400: #fcd535; /* Brighter gold - hover/highlight state */
+  --shark-950: #0c0e12; /* Deepest background */
+  --shark-900: #1e2329; /* Card / surface background */
+  --shark-800: #2b3139; /* Elevated surface, borders */
+  --shark-700: #474d57; /* Muted borders, dividers */
+  --shark-400: #848e9c; /* Muted / secondary text */
   --white: #ffffff;
 
   /* Crypto-standard price movement colors (not part of the brand brief,
@@ -40,7 +40,9 @@
 
   --color-primary: var(--gold-500);
   --color-primary-hover: var(--gold-400);
-  --color-on-primary: var(--shark-950); /* text/icon color when sitting on gold */
+  --color-on-primary: var(
+    --shark-950
+  ); /* text/icon color when sitting on gold */
 
   --color-success: var(--market-up);
   --color-danger: var(--market-down);
@@ -94,4 +96,26 @@ body {
   background: var(--color-background);
   color: var(--color-foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/*
+  Marquee ticker animation. Content is duplicated once in the component
+  (see components/markets/price-ticker-marquee.tsx) and this translates
+  exactly -50% — the width of one copy — so the loop is seamless.
+*/
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
 }

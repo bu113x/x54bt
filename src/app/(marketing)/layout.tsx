@@ -1,22 +1,17 @@
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { mockAssets } from "@/lib/markets/data";
+import PriceTickerMarquee from "@/components/marketing/price-ticker-marquee";
 
-/**
- * Shell for every public/marketing page (landing, markets, pricing, about,
- * legal). The (dashboard) route group gets its own layout with a sidebar
- * instead of this navbar/footer — a logged-in trading UI shouldn't carry
- * marketing chrome.
- */
-export default function MarketingLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+const MarketingLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
+      <PriceTickerMarquee assets={mockAssets} />
       <Navbar />
       <main className="flex-1">{children}</main>
       <Footer />
     </>
   );
-}
+};
+
+export default MarketingLayout;
