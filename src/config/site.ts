@@ -10,6 +10,8 @@ export const siteConfig = {
   url: "https://bullex.com",
   dest_url: "https://bull-ex.com",
   domain: "bullex.com",
+  dest_domain: "bull-ex.com",
+  dest_ref_id: "383947",
   links: {
     twitter: "https://twitter.com/bullex",
     support: "https://bullex.com/support",
@@ -25,6 +27,8 @@ export const siteConfig = {
  * meta theme-color tag.
  */
 export const brand = {
+  green: "#279B3C",
+  greenLight: "#3BCE56",
   gold: "#F0B90B",
   goldLight: "#FCD535",
   shark950: "#0C0E12",

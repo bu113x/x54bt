@@ -1,20 +1,12 @@
 import { Badge } from "@/components/ui/badge";
+import { SmallLogo } from "../ui/logo";
 
 const LivePortfolioPreview = () => {
   return (
     <div className="relative rounded-card border border-border bg-surface p-6 shadow-2xl shadow-black/40">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-on-primary">
-            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none">
-              <path
-                d="M4 17V10M9 17V6M14 17V13M19 17V8"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-              />
-            </svg>
-          </span>
+          <SmallLogo />
           <div>
             <p className="text-sm font-medium">Portfolio preview</p>
             <p className="text-xs text-foreground-muted">Sample data</p>

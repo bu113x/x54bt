@@ -1,27 +1,24 @@
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
+import logo from "@/assets/logo-bullex.svg";
+import smallLogo from "@/assets/logo-bullex-small.png";
+import Image from "next/image";
 
 const Logo = () => {
   return (
     <Link href="/" className="flex items-center gap-2">
-      <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-on-primary">
-        <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none">
-          <path
-            d="M4 17V10M9 17V6M14 17V13M19 17V8"
-            stroke="currentColor"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-          />
-        </svg>
-      </span>
-      <span
-        className="text-lg font-bold"
-        style={{ fontFamily: "var(--font-display)" }}
-      >
-        {siteConfig.name}
-      </span>
+      <Image src={logo} alt={siteConfig.name} width={120} height={60} />
     </Link>
   );
 };
 
+const SmallLogo = () => {
+  return (
+    <Link href="/" className="flex items-center gap-2">
+      <Image src={smallLogo} alt={siteConfig.name} width={44} height={44} />
+    </Link>
+  );
+};
+
+export { SmallLogo };
 export default Logo;
