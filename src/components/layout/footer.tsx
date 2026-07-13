@@ -26,12 +26,7 @@ const columns = [
   },
 ];
 
-/**
- * Site-wide footer. The legal column is deliberately not optional —
- * terms/privacy/risk-disclosure links belong in the footer of every page
- * on an investment product, not just a dedicated legal page.
- */
-export function Footer() {
+const Footer = () => {
   return (
     <footer className="border-t border-border">
       <div className="mx-auto max-w-7xl px-6 py-12">
@@ -70,10 +65,14 @@ export function Footer() {
         </div>
 
         <div className="mt-10 flex flex-col gap-2 border-t border-border pt-6 text-xs text-foreground-muted sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</p>
+          <p>
+            © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
+          </p>
           <p>Investing involves risk, including possible loss of principal.</p>
         </div>
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;

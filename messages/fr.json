@@ -1,0 +1,59 @@
+{
+  "Navbar": {
+    "markets": "Marchés",
+    "pricing": "Tarifs",
+    "about": "À propos",
+    "signIn": "Se connecter",
+    "getStarted": "Commencer"
+  },
+  "Footer": {
+    "description": "Achetez, conservez et développez votre portefeuille crypto.",
+    "product": "Produit",
+    "company": "Entreprise",
+    "legal": "Mentions légales",
+    "termsOfService": "Conditions d'utilisation",
+    "privacyPolicy": "Politique de confidentialité",
+    "riskDisclosure": "Avertissement sur les risques",
+    "contact": "Contact",
+    "rights": "Tous droits réservés.",
+    "riskNote": "Investir comporte des risques, y compris la perte possible du capital."
+  },
+  "Hero": {
+    "badge": "2 847 investisseurs ce mois-ci",
+    "headlineLine1": "Achetez, conservez et développez",
+    "headlineHighlight": "votre portefeuille crypto",
+    "description": "Investissez dans le Bitcoin, l'Ethereum et plus de 50 autres cryptomonnaies. À partir de 10 $.",
+    "statAssetsManaged": "Actifs gérés",
+    "statCryptocurrencies": "Cryptomonnaies",
+    "statInvestors": "Investisseurs",
+    "startInvesting": "Commencer à investir",
+    "viewMarkets": "Voir les marchés",
+    "ratingLabel": "4,9/5 pour 2 847 investisseurs"
+  },
+  "TrustBadges": {
+    "secureTitle": "Garde sécurisée",
+    "secureDescription": "Fonds des clients détenus dans des portefeuilles séparés, majoritairement hors ligne en stockage à froid.",
+    "verificationTitle": "Vérification rapide",
+    "verificationDescription": "La vérification d'identité prend généralement quelques minutes.",
+    "supportTitle": "Support 24/7",
+    "supportDescription": "Une équipe disponible à tout moment, tous les jours de l'année."
+  },
+  "HowItWorks": {
+    "heading": "Commencez en quelques minutes",
+    "registerTitle": "Inscription",
+    "registerDescription": "Créez votre compte Bullex gratuit en moins d'une minute.",
+    "verifyTitle": "Vérification",
+    "verifyDescription": "Confirmez votre identité en une étape rapide.",
+    "depositTitle": "Dépôt",
+    "depositDescription": "Alimentez votre compte avec n'importe quelle cryptomonnaie prise en charge.",
+    "investTitle": "Investissement",
+    "investDescription": "Achetez, vendez et détenez plus de 50 actifs, 24h/24."
+  },
+  "Markets": {
+    "popularAssets": "Actifs populaires",
+    "seeAll": "Voir tous les marchés",
+    "asset": "Actif",
+    "price": "Prix",
+    "change24h": "24h"
+  }
+}

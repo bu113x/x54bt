@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk, Geist_Mono } from "next/font/google";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
+import { notFound } from "next/navigation";
+import { routing } from "@/i18n/routing";
 import { siteConfig } from "@/config/site";
-import "./globals.css";
+import "../globals.css";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -27,18 +31,33 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
 };
 
-export default function RootLayout({
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+export default async function RootLayout({
   children,
-}: Readonly<{
+  params,
+}: {
   children: React.ReactNode;
-}>) {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
+  const messages = await getMessages();
+
   return (
     <html
-      lang="en"
+      lang={locale}
       className={`${inter.variable} ${spaceGrotesk.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
-        {children}
+        <NextIntlClientProvider messages={messages}>
+          {children}
+        </NextIntlClientProvider>
       </body>
     </html>
   );

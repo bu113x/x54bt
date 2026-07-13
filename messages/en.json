@@ -1,0 +1,59 @@
+{
+  "Navbar": {
+    "markets": "Markets",
+    "pricing": "Pricing",
+    "about": "About",
+    "signIn": "Sign in",
+    "getStarted": "Get started"
+  },
+  "Footer": {
+    "description": "Buy, hold, and grow your crypto portfolio.",
+    "product": "Product",
+    "company": "Company",
+    "legal": "Legal",
+    "termsOfService": "Terms of service",
+    "privacyPolicy": "Privacy policy",
+    "riskDisclosure": "Risk disclosure",
+    "contact": "Contact",
+    "rights": "All rights reserved.",
+    "riskNote": "Investing involves risk, including possible loss of principal."
+  },
+  "Hero": {
+    "badge": "2,847 investors joined this month",
+    "headlineLine1": "Buy, hold, and grow",
+    "headlineHighlight": "your crypto portfolio",
+    "description": "Invest in Bitcoin, Ethereum, and 50+ other cryptocurrencies. Start from as little as $10.",
+    "statAssetsManaged": "Assets managed",
+    "statCryptocurrencies": "Cryptocurrencies",
+    "statInvestors": "Investors",
+    "startInvesting": "Start investing",
+    "viewMarkets": "View markets",
+    "ratingLabel": "4.9/5 from 2,847 investors"
+  },
+  "TrustBadges": {
+    "secureTitle": "Secure custody",
+    "secureDescription": "Client funds held in segregated wallets, with the majority kept in offline cold storage.",
+    "verificationTitle": "Fast verification",
+    "verificationDescription": "Identity verification typically completes in minutes, not days.",
+    "supportTitle": "24/7 support",
+    "supportDescription": "Real people available around the clock, every day of the year."
+  },
+  "HowItWorks": {
+    "heading": "Get started in minutes",
+    "registerTitle": "Register",
+    "registerDescription": "Create your free Bullex account in under a minute.",
+    "verifyTitle": "Verify",
+    "verifyDescription": "Confirm your identity with a quick verification step.",
+    "depositTitle": "Deposit",
+    "depositDescription": "Fund your account with any supported cryptocurrency.",
+    "investTitle": "Invest",
+    "investDescription": "Buy, sell, and hold from 50+ assets, 24/7."
+  },
+  "Markets": {
+    "popularAssets": "Popular assets",
+    "seeAll": "See all markets",
+    "asset": "Asset",
+    "price": "Price",
+    "change24h": "24h"
+  }
+}

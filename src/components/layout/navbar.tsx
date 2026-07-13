@@ -1,16 +1,20 @@
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { siteConfig } from "@/config/site";
 import { Button } from "@/components/ui/button";
+import LanguageSwitcher from "@/components/layout/language-switcher";
 
-const navLinks = [
-  { href: "/assets", label: "Assets" },
-  { href: "/advantages", label: "Advantages" },
-  { href: "/finance", label: "Finance" },
-  { href: "/testimonials", label: "Testimonials" },
-  { href: "/how-it-works", label: "How It Works" },
-];
+const Navbar = () => {
+  const t = useTranslations("Navbar");
 
-export function Navbar() {
+  const navLinks = [
+    { href: "/assets", label: "Assets" },
+    { href: "/advantages", label: "Advantages" },
+    { href: "/finance", label: "Finance" },
+    { href: "/testimonials", label: "Testimonials" },
+    { href: "/how-it-works", label: "How It Works" },
+  ];
+
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
@@ -46,17 +50,20 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-3">
+          <LanguageSwitcher />
           <Link
             href="/login"
             className="hidden text-sm text-foreground-muted transition-colors hover:text-foreground sm:block"
           >
-            Sign in
+            {t("signIn")}
           </Link>
           <Link href="/signup">
-            <Button size="sm">Get started</Button>
+            <Button size="sm">{t("getStarted")}</Button>
           </Link>
         </div>
       </div>
     </header>
   );
-}
+};
+
+export default Navbar;
