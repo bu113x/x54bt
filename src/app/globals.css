@@ -1,19 +1,21 @@
 @import "tailwindcss";
 
 /*
-  Bullex color system
-  Built on the Binance palette: gold for action/emphasis, near-black for
+  Bullex color system:
+  Uses green for action/emphasis, near-black for
   surfaces, white for primary text. Dark theme is the default surface —
   crypto/trading products read as "serious" in dark UI, and it makes the
-  gold pop the way it's meant to.
+  green pop the way it's meant to.
 
   Semantic tokens (bg/surface/foreground/etc.) are what components should
-  actually use. The raw gold and shark scale values below exist as the
+  actually use. The raw green and shark scale values below exist as the
   source palette, not for direct use in markup.
 */
 
 :root {
   /* ---- Binance-derived raw scale ---- */
+  --green-500: #279b3c; /* Green - primary brand green */
+  --green-400: #3bce56; /* Brighter green - hover/highlight state */
   --gold-500: #f0b90b; /* Buttercup - primary brand gold */
   --gold-400: #fcd535; /* Brighter gold - hover/highlight state */
   --shark-950: #0c0e12; /* Deepest background */
@@ -38,11 +40,11 @@
   --color-fg: var(--white);
   --color-fg-muted: var(--shark-400);
 
-  --color-primary: var(--gold-500);
-  --color-primary-hover: var(--gold-400);
+  --color-primary: var(--green-500);
+  --color-primary-hover: var(--green-400);
   --color-on-primary: var(
     --shark-950
-  ); /* text/icon color when sitting on gold */
+  ); /* text/icon color when sitting on green */
 
   --color-success: var(--market-up);
   --color-danger: var(--market-down);
