@@ -3,17 +3,13 @@ import { siteConfig } from "@/config/site";
 import { Button } from "@/components/ui/button";
 
 const navLinks = [
-  { href: "/markets", label: "Markets" },
-  { href: "/pricing", label: "Pricing" },
-  { href: "/about", label: "About" },
+  { href: "/assets", label: "Assets" },
+  { href: "/advantages", label: "Advantages" },
+  { href: "/finance", label: "Finance" },
+  { href: "/testimonials", label: "Testimonials" },
+  { href: "/how-it-works", label: "How It Works" },
 ];
 
-/**
- * Top navigation for the marketing/public shell. The dashboard shell uses
- * a separate sidebar (see layout/dashboard-sidebar.tsx once that's built),
- * since a logged-in trading UI and a marketing site have different
- * navigation needs.
- */
 export function Navbar() {
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur">

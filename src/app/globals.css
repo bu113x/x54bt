@@ -99,23 +99,50 @@ body {
 }
 
 /*
-  Marquee ticker animation. Content is duplicated once in the component
-  (see components/markets/price-ticker-marquee.tsx) and this translates
-  exactly -50% — the width of one copy — so the loop is seamless.
+  Marquee ticker animation. The track holds exactly two equal-width halves
+  (see components/markets/price-ticker-marquee.tsx) and translates exactly
+  -50% — the width of one half — so the loop has no visible seam.
+  translate3d + will-change force GPU compositing so the loop restart
+  doesn't produce a visible stutter/jump.
 */
 @keyframes marquee {
   from {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
   to {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
 .animate-marquee {
   animation: marquee 30s linear infinite;
+  will-change: transform;
 }
 
 .animate-marquee:hover {
   animation-play-state: paused;
+}
+
+/*
+  Gentle float for the hero's floating notification chips. Two variants
+  with different delays so the chips don't bob in sync — small
+  desynchronization is what reads as "alive" rather than mechanical.
+*/
+@keyframes float-chip {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-float-chip {
+  animation: float-chip 3s ease-in-out infinite;
+}
+
+.animate-float-chip-delayed {
+  animation: float-chip 3s ease-in-out infinite;
+  animation-delay: 1.5s;
 }

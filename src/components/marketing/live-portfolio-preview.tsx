@@ -32,7 +32,7 @@ const LivePortfolioPreview = () => {
           $24,832.10
         </p>
 
-        <div className="absolute -right-2 top-1 flex items-center gap-2 rounded-xl border border-border bg-surface-elevated px-3 py-2 shadow-lg sm:right-4">
+        <div className="animate-float-chip absolute -right-2 top-1 flex items-center gap-2 rounded-xl border border-border bg-surface-elevated px-3 py-2 shadow-lg sm:right-4">
           <span className="flex h-7 w-7 items-center justify-center rounded-full bg-success/15 text-success">
             <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none">
               <path
@@ -86,7 +86,7 @@ const LivePortfolioPreview = () => {
         </svg>
 
         {/* Floating notification chip — overlaps the bottom-right of the chart */}
-        <div className="absolute -bottom-3 right-0 flex items-center gap-2 rounded-xl border border-border bg-surface-elevated px-3 py-2 shadow-lg sm:right-4">
+        <div className="animate-float-chip-delayed absolute -bottom-3 right-0 flex items-center gap-2 rounded-xl border border-border bg-surface-elevated px-3 py-2 shadow-lg sm:right-4">
           <span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary/15 text-primary">
             $
           </span>
