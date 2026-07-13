@@ -1,10 +1,12 @@
 {
   "Navbar": {
-    "markets": "Markets",
-    "pricing": "Pricing",
-    "about": "About",
-    "signIn": "Sign in",
-    "getStarted": "Get started"
+    "assets": "Assets",
+    "advantages": "Advantages",
+    "finance": "Finance",
+    "testimonials": "Testimonials",
+    "howItWorks": "How It Works",
+    "signIn": "Sign In",
+    "getStarted": "Get Started"
   },
   "Footer": {
     "description": "Buy, hold, and grow your crypto portfolio.",

@@ -1,8 +1,10 @@
 {
   "Navbar": {
-    "markets": "Marchés",
-    "pricing": "Tarifs",
-    "about": "À propos",
+    "assets": "Marchés",
+    "advantages": "Avantages",
+    "finance": "À propos",
+    "testimonials": "Témoignages",
+    "howItWorks": "Comment ça marche",
     "signIn": "Se connecter",
     "getStarted": "Commencer"
   },

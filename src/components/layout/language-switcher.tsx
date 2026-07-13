@@ -21,7 +21,7 @@ const LanguageSwitcher = () => {
         router.replace(pathname, { locale: event.target.value });
       }}
       aria-label="Language"
-      className="rounded-full border border-border-strong bg-transparent px-3 py-1.5 text-sm text-foreground-muted"
+      className="rounded border border-border-strong bg-transparent pe-1 py-1 text-sm text-foreground-muted"
     >
       {routing.locales.map((loc) => (
         <option key={loc} value={loc} className="bg-surface text-foreground">

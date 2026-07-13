@@ -8,11 +8,13 @@ export const siteConfig = {
   name: "Bullex",
   description: "Buy, hold, and grow your crypto portfolio.",
   url: "https://bullex.com",
+  dest_url: "https://bull-ex.com",
   domain: "bullex.com",
   links: {
     twitter: "https://twitter.com/bullex",
     support: "https://bullex.com/support",
   },
+  support_email: "support@bullex.com",
 } as const;
 
 /**
