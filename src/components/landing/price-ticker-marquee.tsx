@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import type { Asset } from "@/types/asset";
 import { formatPrice } from "@/lib/content/format";
+import useMarqueeScroll from "@/hooks/use-marquee-scroll";
 
 const SPEED_PX_PER_SEC = 40;
 const COPIES = 4;
@@ -27,7 +28,10 @@ const TickerItem = ({ asset }: { asset: Asset }) => {
 };
 
 const PriceTickerMarquee = ({ assets }: { assets: Asset[] }) => {
-  const trackRef = useRef<HTMLDivElement>(null);
+  const { trackRef, onMouseEnter, onMouseLeave } = useMarqueeScroll({
+    speed: 40,
+    direction: "left",
+  });
   const offsetRef = useRef(0);
   const setWidthRef = useRef(0);
   const pausedRef = useRef(false);
@@ -73,12 +77,8 @@ const PriceTickerMarquee = ({ assets }: { assets: Asset[] }) => {
   return (
     <div
       className="overflow-hidden border-b border-border bg-surface/50 py-2"
-      onMouseEnter={() => {
-        pausedRef.current = true;
-      }}
-      onMouseLeave={() => {
-        pausedRef.current = false;
-      }}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
     >
       <div ref={trackRef} className="flex w-max">
         {Array.from({ length: COPIES }).map((_, copyIndex) => (

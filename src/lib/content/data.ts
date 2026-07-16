@@ -21,11 +21,17 @@ import {
   GraduationCap,
   Wallet,
   CircleDollarSign,
+  Headphones,
+  Repeat,
+  ArrowLeftRight,
+  LayoutDashboard,
+  Activity,
+  Receipt,
 } from "lucide-react";
-import { HowItWorksStep, PressMention, QuickStat } from "@/types";
+import { Advantage, HowItWorksStep, PressMention, QuickStat } from "@/types";
 
 export const quickStats: QuickStat[] = [
-  { id: "minDeposit", value: "$10", icon: Wallet },
+  { id: "minDeposit", value: "$200", icon: Wallet },
   { id: "minInvestment", value: "$500", icon: CircleDollarSign },
   { id: "practiceAccount", value: "$10,000", icon: GraduationCap },
 ];
@@ -163,4 +169,23 @@ export const featuredIn: PressMention[] = [
   { name: "Finance Weekly" },
   { name: "Market Insights" },
   { name: "Blockchain Times" },
+];
+
+export const advantages: Advantage[] = [
+  { id: "interface", icon: LayoutDashboard, span: 1 },
+  { id: "marketData", icon: Activity, span: 1 },
+  { id: "fees", icon: Receipt, span: 2 },
+  {
+    id: "deposits",
+    icon: ArrowLeftRight,
+    badge: { value: "$200", label: "minimum deposit" },
+    span: 2,
+  },
+  {
+    id: "recurring",
+    icon: Repeat,
+    badge: { value: "$5", label: "min. recurring buy" },
+    span: 1,
+  },
+  { id: "support", icon: Headphones, span: 1 },
 ];

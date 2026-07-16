@@ -36,7 +36,7 @@
     "badge": "2 847 investisseurs ce mois-ci",
     "headlineLine1": "Achetez, conservez et développez",
     "headlineHighlight": "votre portefeuille crypto",
-    "description": "Investissez dans le Bitcoin, l'Ethereum et plus de 50 autres cryptomonnaies. À partir de 10 $.",
+    "description": "Investissez dans le Bitcoin, l'Ethereum et plus de 50 autres cryptomonnaies. À partir de 200 $.",
     "statAssetsManaged": "Actifs gérés",
     "statCryptocurrencies": "Cryptomonnaies",
     "statInvestors": "Investisseurs",
@@ -44,7 +44,7 @@
     "viewMarkets": "Voir les marchés",
     "ratingLabel": "4,9/5 pour 2 847 investisseurs"
   },
-  "TrustBadges": {
+  "Wins": {
     "secureTitle": "Garde sécurisée",
     "secureDescription": "Fonds des clients détenus dans des portefeuilles séparés, majoritairement hors ligne en stockage à froid.",
     "verificationTitle": "Vérification rapide",
@@ -82,7 +82,7 @@
       },
       "deposit": {
         "title": "Dépôt",
-        "description": "Commencez à investir avec un dépôt minimum de seulement 10 $."
+        "description": "Commencez à investir avec un dépôt minimum de seulement 200 $."
       }
     },
     "quickStats": {
@@ -111,7 +111,7 @@
       },
       "minAmount": {
         "question": "De combien ai-je besoin pour commencer à investir ?",
-        "answer": "L'ouverture d'un compte est gratuite, et vous pouvez commencer à investir à partir de 10 $."
+        "answer": "L'ouverture d'un compte est gratuite, et vous pouvez commencer à investir à partir de 200 $."
       },
       "assets": {
         "question": "Dans quels actifs puis-je investir ?",
@@ -128,6 +128,37 @@
       "mobile": {
         "question": "Puis-je accéder à mon portefeuille sur mobile ?",
         "answer": "Oui — Bullex fonctionne dans n'importe quel navigateur mobile."
+      }
+    }
+  },
+  "Advantages": {
+    "badge": "Avantages",
+    "heading": "Pourquoi les investisseurs choisissent Bullex",
+    "subheading": "Des outils simples, une tarification transparente, et une plateforme pensée pour l'investissement à long terme.",
+    "items": {
+      "interface": {
+        "title": "Interface simple d'utilisation",
+        "description": "Toutes les ressources à portée de main, dans une interface qui allie simplicité et clarté."
+      },
+      "marketData": {
+        "title": "Données de marché en temps réel",
+        "description": "Prix en direct et suivi de portefeuille mis à jour en temps réel, pour toujours savoir où vous en êtes."
+      },
+      "fees": {
+        "title": "Frais transparents",
+        "description": "Aucun frais caché ni solde minimum requis — voyez exactement ce que vous payez avant d'investir."
+      },
+      "deposits": {
+        "title": "Dépôts et retraits",
+        "description": "Déposez n'importe quelle cryptomonnaie prise en charge, et retirez avec un traitement généralement terminé en quelques heures."
+      },
+      "recurring": {
+        "title": "Investissements récurrents",
+        "description": "Automatisez vos investissements avec des achats récurrents programmés — investissez régulièrement sans y penser."
+      },
+      "support": {
+        "title": "Support 24/7",
+        "description": "Notre équipe de support formée est prête à vous aider à tout moment."
       }
     }
   }

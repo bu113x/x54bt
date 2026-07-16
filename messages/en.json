@@ -36,7 +36,7 @@
     "badge": "2,847 investors joined this month",
     "headlineLine1": "Buy, hold, and grow",
     "headlineHighlight": "your crypto portfolio",
-    "description": "Invest in Bitcoin, Ethereum, and 50+ other cryptocurrencies. Start from as little as $10.",
+    "description": "Invest in Bitcoin, Ethereum, and 50+ other cryptocurrencies. Start from as little as $200.",
     "statAssetsManaged": "Assets managed",
     "statCryptocurrencies": "Cryptocurrencies",
     "statInvestors": "Investors",
@@ -44,7 +44,7 @@
     "viewMarkets": "View markets",
     "ratingLabel": "4.9/5 from 2,847 investors"
   },
-  "TrustBadges": {
+  "Wins": {
     "secureTitle": "Secure custody",
     "secureDescription": "Client funds held in segregated wallets, with the majority kept in offline cold storage.",
     "verificationTitle": "Fast verification",
@@ -82,7 +82,7 @@
       },
       "deposit": {
         "title": "Deposit",
-        "description": "Start investing with a minimum deposit of just $10."
+        "description": "Start investing with a minimum deposit of just $200."
       }
     },
     "quickStats": {
@@ -111,7 +111,7 @@
       },
       "minAmount": {
         "question": "How much do I need to start investing?",
-        "answer": "Opening an account is free, and you can start investing with as little as $10."
+        "answer": "Opening an account is free, and you can start investing with as little as $200."
       },
       "assets": {
         "question": "What assets can I invest in?",
@@ -128,6 +128,37 @@
       "mobile": {
         "question": "Can I access my portfolio on mobile?",
         "answer": "Yes — Bullex works in any mobile browser."
+      }
+    }
+  },
+  "Advantages": {
+    "badge": "Advantages",
+    "heading": "Why investors choose Bullex",
+    "subheading": "Straightforward tools, transparent pricing, and a platform built for long-term investing.",
+    "items": {
+      "interface": {
+        "title": "Easy-to-use interface",
+        "description": "Have all resources at your fingertips, with an interface that combines simplicity and clarity."
+      },
+      "marketData": {
+        "title": "Real-time market data",
+        "description": "Live prices and portfolio tracking, updated in real time, so you always know where you stand."
+      },
+      "fees": {
+        "title": "Transparent fees",
+        "description": "No hidden fees or minimum balance requirements — see exactly what you pay before you invest."
+      },
+      "deposits": {
+        "title": "Deposits & withdrawals",
+        "description": "Deposit any supported cryptocurrency, and withdraw with processing typically completed within hours."
+      },
+      "recurring": {
+        "title": "Recurring investments",
+        "description": "Automate your investing with scheduled recurring buys — dollar-cost average without lifting a finger."
+      },
+      "support": {
+        "title": "24/7 support",
+        "description": "Our trained support team is ready to help you at any moment."
       }
     }
   }

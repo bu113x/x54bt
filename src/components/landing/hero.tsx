@@ -31,7 +31,7 @@ const Hero = () => {
 
         <p className="mt-6 max-w-xl text-lg text-foreground-muted">
           Invest in Bitcoin, Ethereum, and 50+ other cryptocurrencies. Start
-          from as little as $10.
+          from as little as $200.
         </p>
 
         <div className="mt-8 flex flex-wrap items-baseline gap-8">
@@ -66,7 +66,9 @@ const Hero = () => {
 
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <Link href="/signup">
-            <Button size="lg" className="cursor-pointer">Start investing</Button>
+            <Button size="lg" className="cursor-pointer">
+              Start investing
+            </Button>
           </Link>
           <Link href="/markets">
             <Button variant="secondary" size="lg" className="cursor-pointer">
