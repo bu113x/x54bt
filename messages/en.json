@@ -161,5 +161,23 @@
         "description": "Our trained support team is ready to help you at any moment."
       }
     }
+  },
+  "LivePortfolioPreview": {
+    "title": "Portfolio preview",
+    "sampleData": "Sample data",
+    "totalBalance": "Total balance",
+    "btcBought": "BTC bought +2.1%",
+    "justNow": "Just now",
+    "ethProfit": "+$240 profit",
+    "ethSold": "ETH sold",
+    "assetsHeld": "Assets held",
+    "thisMonth": "This month",
+    "tradeFee": "Trade fee"
+  },
+  "Assets": {
+    "badge": "Assets",
+    "heading": "What you can invest in",
+    "description": "We offer a wide range of cryptocurrencies and other digital assets for you to invest in. Start building your portfolio today and take advantage of the growing crypto market.",
+    "cta": "Create an account"
   }
 }

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import CryptoMarquee from "./crypto-marquee";
-import type { CryptoAsset } from "./crypto-card";
+import CryptoMarquee from "../landing/crypto-marquee";
+import type { CryptoAsset } from "../landing/crypto-card";
 import {
   bitcoin,
   cardano,
@@ -10,6 +10,7 @@ import {
   ripple,
   tether,
 } from "@/assets/coins";
+import { useTranslations } from "next-intl";
 
 const assets: CryptoAsset[] = [
   {
@@ -60,23 +61,23 @@ const assets: CryptoAsset[] = [
 ];
 
 const Assets = () => {
+  const t = useTranslations("Assets");
+
   return (
     <section className="mx-auto max-w-7xl px-6 py-20 text-center">
       <span className="inline-flex items-center gap-2 rounded-full border border-success/30 bg-success/10 px-3 py-1.5 text-sm text-success">
-        ASSETS
+        {t("badge")}
       </span>
 
       <h2
         className="mt-6 text-4xl font-bold leading-[1.1] sm:text-5xl"
         style={{ fontFamily: "var(--font-display)" }}
       >
-        What you can invest in
+        {t("heading")}
       </h2>
 
       <p className="mx-auto mt-6 max-w-2xl text-lg text-foreground-muted">
-        We offer a wide range of cryptocurrencies and other digital assets for
-        you to invest in. Start building your portfolio today and take advantage
-        of the growing crypto market.
+        {t("description")}
       </p>
 
       <div className="mt-14">
@@ -85,7 +86,7 @@ const Assets = () => {
 
       <Link href="/signup">
         <Button size="lg" className="mt-10">
-          Create an account
+          {t("cta")}
         </Button>
       </Link>
     </section>

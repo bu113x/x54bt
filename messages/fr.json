@@ -161,5 +161,23 @@
         "description": "Notre équipe de support formée est prête à vous aider à tout moment."
       }
     }
+  },
+  "LivePortfolioPreview": {
+    "title": "Aperçu du portefeuille",
+    "sampleData": "Données d'exemple",
+    "totalBalance": "Solde total",
+    "btcBought": "BTC acheté +2,1 %",
+    "justNow": "À l'instant",
+    "ethProfit": "+240 $ de gain",
+    "ethSold": "ETH vendu",
+    "assetsHeld": "Actifs détenus",
+    "thisMonth": "Ce mois-ci",
+    "tradeFee": "Frais de transaction"
+  },
+  "Assets": {
+    "badge": "Actifs",
+    "heading": "Dans quoi vous pouvez investir",
+    "description": "Nous proposons une large gamme de cryptomonnaies et d'autres actifs numériques dans lesquels investir. Commencez à construire votre portefeuille dès aujourd'hui et profitez de la croissance du marché crypto.",
+    "cta": "Créer un compte"
   }
 }

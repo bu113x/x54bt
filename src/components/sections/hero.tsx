@@ -1,10 +1,13 @@
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import LivePortfolioPreview from "./live-portfolio-preview";
-import { davidK, jenniferL, lisaM, robertT } from "@/assets/investors";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
+import { Button } from "@/components/ui/button";
+import { davidK, jenniferL, lisaM, robertT } from "@/assets/investors";
+import LivePortfolioPreview from "../landing/live-portfolio-preview";
 
 const Hero = () => {
+  const t = useTranslations("Hero");
+
   const ratings = [
     { initial: "JL", avatar: jenniferL },
     { initial: "DK", avatar: davidK },
@@ -17,21 +20,20 @@ const Hero = () => {
       <div>
         <span className="inline-flex items-center gap-2 rounded-full border border-success/30 bg-success/10 px-3 py-1.5 text-sm text-success">
           <span className="h-2 w-2 rounded-full bg-success" />
-          2,847 investors joined this month
+          {t("badge")}
         </span>
 
         <h1
           className="mt-6 text-5xl font-bold leading-[1.1] sm:text-6xl"
           style={{ fontFamily: "var(--font-display)" }}
         >
-          Buy, hold, and grow
+          {t("headlineLine1")}
           <br />
-          <span className="text-primary">your crypto portfolio</span>
+          <span className="text-primary">{t("headlineHighlight")}</span>
         </h1>
 
         <p className="mt-6 max-w-xl text-lg text-foreground-muted">
-          Invest in Bitcoin, Ethereum, and 50+ other cryptocurrencies. Start
-          from as little as $200.
+          {t("description")}
         </p>
 
         <div className="mt-8 flex flex-wrap items-baseline gap-8">
@@ -42,7 +44,9 @@ const Hero = () => {
             >
               $120M+
             </p>
-            <p className="text-sm text-foreground-muted">Assets managed</p>
+            <p className="text-sm text-foreground-muted">
+              {t("statAssetsManaged")}
+            </p>
           </div>
           <div>
             <p
@@ -51,7 +55,9 @@ const Hero = () => {
             >
               50+
             </p>
-            <p className="text-sm text-foreground-muted">Cryptocurrencies</p>
+            <p className="text-sm text-foreground-muted">
+              {t("statCryptocurrencies")}
+            </p>
           </div>
           <div>
             <p
@@ -60,19 +66,21 @@ const Hero = () => {
             >
               40K+
             </p>
-            <p className="text-sm text-foreground-muted">Investors</p>
+            <p className="text-sm text-foreground-muted">
+              {t("statInvestors")}
+            </p>
           </div>
         </div>
 
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <Link href="/signup">
             <Button size="lg" className="cursor-pointer">
-              Start investing
+              {t("startInvesting")}
             </Button>
           </Link>
           <Link href="/markets">
             <Button variant="secondary" size="lg" className="cursor-pointer">
-              View markets
+              {t("viewMarkets")}
             </Button>
           </Link>
         </div>
@@ -100,9 +108,7 @@ const Hero = () => {
           </div>
           <div>
             <div className="flex text-primary">{"★★★★★"}</div>
-            <p className="text-xs text-foreground-muted">
-              4.9/5 from 2,847 investors
-            </p>
+            <p className="text-xs text-foreground-muted">{t("ratingLabel")}</p>
           </div>
         </div>
       </div>

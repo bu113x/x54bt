@@ -1,22 +1,25 @@
+import { useTranslations } from "next-intl";
 import { Badge } from "@/components/ui/badge";
-import { SmallLogo } from "../ui/logo";
+import { SmallLogo } from "@/components/ui/logo";
 
 const LivePortfolioPreview = () => {
+  const t = useTranslations("LivePortfolioPreview");
+
   return (
     <div className="relative rounded-card border border-border bg-surface p-6 shadow-2xl shadow-black/40">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
           <SmallLogo />
           <div>
-            <p className="text-sm font-medium">Portfolio preview</p>
-            <p className="text-xs text-foreground-muted">Sample data</p>
+            <p className="text-sm font-medium">{t("title")}</p>
+            <p className="text-xs text-foreground-muted">{t("sampleData")}</p>
           </div>
         </div>
         <Badge variant="success">+18.4%</Badge>
       </div>
 
       <div className="relative mt-6">
-        <p className="text-xs text-foreground-muted">Total balance</p>
+        <p className="text-xs text-foreground-muted">{t("totalBalance")}</p>
         <p
           className="text-4xl font-bold tabular-nums"
           style={{ fontFamily: "var(--font-display)" }}
@@ -37,8 +40,8 @@ const LivePortfolioPreview = () => {
             </svg>
           </span>
           <div className="text-xs">
-            <p className="font-medium">BTC bought +2.1%</p>
-            <p className="text-foreground-muted">Just now</p>
+            <p className="font-medium">{t("btcBought")}</p>
+            <p className="text-foreground-muted">{t("justNow")}</p>
           </div>
         </div>
       </div>
@@ -83,8 +86,8 @@ const LivePortfolioPreview = () => {
             $
           </span>
           <div className="text-xs">
-            <p className="font-medium">+$240 profit</p>
-            <p className="text-foreground-muted">ETH sold</p>
+            <p className="font-medium">{t("ethProfit")}</p>
+            <p className="text-foreground-muted">{t("ethSold")}</p>
           </div>
         </div>
       </div>
@@ -97,7 +100,7 @@ const LivePortfolioPreview = () => {
           >
             12
           </p>
-          <p className="text-xs text-foreground-muted">Assets held</p>
+          <p className="text-xs text-foreground-muted">{t("assetsHeld")}</p>
         </div>
         <div className="text-center">
           <p
@@ -106,7 +109,7 @@ const LivePortfolioPreview = () => {
           >
             +18.4%
           </p>
-          <p className="text-xs text-foreground-muted">This month</p>
+          <p className="text-xs text-foreground-muted">{t("thisMonth")}</p>
         </div>
         <div className="text-center">
           <p
@@ -115,7 +118,7 @@ const LivePortfolioPreview = () => {
           >
             0.1%
           </p>
-          <p className="text-xs text-foreground-muted">Trade fee</p>
+          <p className="text-xs text-foreground-muted">{t("tradeFee")}</p>
         </div>
       </div>
     </div>
