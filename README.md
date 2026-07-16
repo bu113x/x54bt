@@ -18,7 +18,7 @@ src/
   components/
     ui/                   generic, reusable UI primitives (buttons, inputs, cards...)
     layout/                header, footer, shell components
-    marketing/              landing/marketing page sections
+    landing/              landing page sections
     integrations/          third-party widget wrappers (Smartsupp, etc.)
   lib/
     auth/                  better-auth config and helpers

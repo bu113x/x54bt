@@ -54,7 +54,7 @@
 
 /*
   Light theme, opt-in via [data-theme="light"] on <html>.
-  Kept for marketing/legal pages where a light surface reads better;
+  Kept for landing/legal pages where a light surface reads better;
   the app/dashboard shell should stay dark by default.
 */
 [data-theme="light"] {

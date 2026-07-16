@@ -1,9 +1,9 @@
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 import { mockAssets } from "@/lib/markets/data";
-import PriceTickerMarquee from "@/components/marketing/price-ticker-marquee";
+import PriceTickerMarquee from "@/components/landing/price-ticker-marquee";
 
-const MarketingLayout = ({ children }: { children: React.ReactNode }) => {
+const LandingLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <PriceTickerMarquee assets={mockAssets} />
@@ -14,4 +14,4 @@ const MarketingLayout = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export default MarketingLayout;
+export default LandingLayout;
