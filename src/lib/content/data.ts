@@ -16,25 +16,13 @@ import {
   tether,
 } from "@/assets/coins";
 import type { Testimonial } from "@/types/testimonial";
-import type { LucideIcon } from "lucide-react";
 import {
   UserPlus,
   GraduationCap,
   Wallet,
   CircleDollarSign,
 } from "lucide-react";
-
-export interface HowItWorksStep {
-  id: "register" | "explore" | "deposit";
-  number: string;
-  icon: LucideIcon;
-}
-
-export interface QuickStat {
-  id: "minDeposit" | "minInvestment" | "practiceAccount";
-  value: string;
-  icon: LucideIcon;
-}
+import { HowItWorksStep, PressMention, QuickStat } from "@/types";
 
 export const quickStats: QuickStat[] = [
   { id: "minDeposit", value: "$10", icon: Wallet },
@@ -168,4 +156,11 @@ export const badges = [
     description:
       "Real people available around the clock, every day of the year.",
   },
+];
+
+export const featuredIn: PressMention[] = [
+  { name: "Crypto Daily" },
+  { name: "Finance Weekly" },
+  { name: "Market Insights" },
+  { name: "Blockchain Times" },
 ];

@@ -90,5 +90,45 @@
       "minInvestment": "Minimum investment",
       "practiceAccount": "Practice account"
     }
+  },
+  "FeaturedIn": {
+    "label": "As featured in"
+  },
+  "FAQ": {
+    "badge": "FAQ",
+    "heading": "Common <highlight>Questions</highlight>",
+    "subheading": "Everything you need to know about investing with Bullex.",
+    "stillHaveQuestions": "Still have questions? We're here to help.",
+    "contactSupport": "Contact support",
+    "items": {
+      "experience": {
+        "question": "Do I need any investing experience to get started?",
+        "answer": "No. Bullex is built for both beginners and experienced investors. You can start with a small amount, try the demo account first, and go at your own pace."
+      },
+      "guarantee": {
+        "question": "Are returns guaranteed?",
+        "answer": "No. Investing in cryptocurrency involves risk, including the possible loss of your invested capital. Past performance is not a reliable indicator of future results — never invest money you can't afford to lose."
+      },
+      "minAmount": {
+        "question": "How much do I need to start investing?",
+        "answer": "Opening an account is free, and you can start investing with as little as $10."
+      },
+      "assets": {
+        "question": "What assets can I invest in?",
+        "answer": "Bitcoin, Ethereum, and 50+ other cryptocurrencies, with more added regularly."
+      },
+      "security": {
+        "question": "How is my crypto secured?",
+        "answer": "Client funds are held in segregated wallets, with the majority kept in offline cold storage. We never share your private keys."
+      },
+      "depositsWithdrawals": {
+        "question": "How do deposits and withdrawals work?",
+        "answer": "Deposit any supported cryptocurrency directly to your Bullex wallet. Withdrawals are typically processed within a few hours once identity verification is complete."
+      },
+      "mobile": {
+        "question": "Can I access my portfolio on mobile?",
+        "answer": "Yes — Bullex works in any mobile browser."
+      }
+    }
   }
 }

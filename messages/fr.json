@@ -90,5 +90,45 @@
       "minInvestment": "Investissement minimum",
       "practiceAccount": "Compte démo"
     }
+  },
+  "FeaturedIn": {
+    "label": "Ils parlent de nous"
+  },
+  "FAQ": {
+    "badge": "FAQ",
+    "heading": "Questions <highlight>fréquentes</highlight>",
+    "subheading": "Tout ce qu'il faut savoir pour investir avec Bullex.",
+    "stillHaveQuestions": "Encore des questions ? Nous sommes là pour vous aider.",
+    "contactSupport": "Contacter le support",
+    "items": {
+      "experience": {
+        "question": "Ai-je besoin d'expérience en investissement pour commencer ?",
+        "answer": "Non. Bullex est conçu aussi bien pour les débutants que pour les investisseurs expérimentés. Vous pouvez commencer avec un petit montant, essayer le compte démo, et avancer à votre rythme."
+      },
+      "guarantee": {
+        "question": "Les rendements sont-ils garantis ?",
+        "answer": "Non. Investir en cryptomonnaie comporte des risques, y compris la perte possible du capital investi. Les performances passées ne préjugent pas des performances futures — n'investissez jamais une somme que vous ne pouvez pas vous permettre de perdre."
+      },
+      "minAmount": {
+        "question": "De combien ai-je besoin pour commencer à investir ?",
+        "answer": "L'ouverture d'un compte est gratuite, et vous pouvez commencer à investir à partir de 10 $."
+      },
+      "assets": {
+        "question": "Dans quels actifs puis-je investir ?",
+        "answer": "Bitcoin, Ethereum et plus de 50 autres cryptomonnaies, avec de nouveaux ajouts réguliers."
+      },
+      "security": {
+        "question": "Comment mes cryptos sont-elles sécurisées ?",
+        "answer": "Les fonds des clients sont détenus dans des portefeuilles séparés, majoritairement conservés hors ligne en stockage à froid. Nous ne partageons jamais vos clés privées."
+      },
+      "depositsWithdrawals": {
+        "question": "Comment fonctionnent les dépôts et les retraits ?",
+        "answer": "Déposez n'importe quelle cryptomonnaie prise en charge directement sur votre portefeuille Bullex. Les retraits sont généralement traités en quelques heures une fois la vérification d'identité terminée."
+      },
+      "mobile": {
+        "question": "Puis-je accéder à mon portefeuille sur mobile ?",
+        "answer": "Oui — Bullex fonctionne dans n'importe quel navigateur mobile."
+      }
+    }
   }
 }
