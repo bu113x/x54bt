@@ -54,7 +54,7 @@ const HowItWorks = () => {
       </div>
 
       <Link href="/signup">
-        <Button size="lg" className="mt-12">
+        <Button size="lg" className="mt-12 cursor-pointer">
           {t("cta")}
         </Button>
       </Link>

@@ -57,7 +57,9 @@
     "seeAll": "See all markets",
     "asset": "Asset",
     "price": "Price",
-    "change24h": "24h"
+    "change24h": "24h",
+    "bid": "Bid",
+    "ask": "Ask"
   },
   "Testimonials": {
     "badge": "Success stories",
@@ -78,7 +80,7 @@
       },
       "explore": {
         "title": "Explore the platform",
-        "description": "Explore the platform and practice in a demo account with virtual balance."
+        "description": "Explore the platform and see our investment options."
       },
       "deposit": {
         "title": "Deposit",
@@ -86,9 +88,9 @@
       }
     },
     "quickStats": {
-      "minDeposit": "Minimum deposit",
+      "minPeriod": "Minimum period",
       "minInvestment": "Minimum investment",
-      "practiceAccount": "Practice account"
+      "assetOptions": "Asset options"
     }
   },
   "FeaturedIn": {

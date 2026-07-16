@@ -1,7 +1,7 @@
 import PopularAssets from "@/components/landing/popular-assets";
-import React from "react";
+import Assets from "@/components/sections/assets";
 
-const Assets = () => {
+const AssetsPage = () => {
   return (
     <div>
       <PopularAssets />
@@ -10,4 +10,4 @@ const Assets = () => {
   );
 };
 
-export default Assets;
+export default AssetsPage;

@@ -40,7 +40,9 @@ const Navbar = () => {
             {t("signIn")}
           </Link>
           <Link href="/signup">
-            <Button size="sm">{t("getStarted")}</Button>
+            <Button size="sm" className="cursor-pointer">
+              {t("getStarted")}
+            </Button>
           </Link>
         </div>
       </div>

@@ -57,7 +57,9 @@
     "seeAll": "Voir tous les marchés",
     "asset": "Actif",
     "price": "Prix",
-    "change24h": "24h"
+    "change24h": "24h",
+    "bid": "Achat",
+    "ask": "Vente"
   },
   "Testimonials": {
     "badge": "Témoignages",
@@ -78,7 +80,7 @@
       },
       "explore": {
         "title": "Découvrez la plateforme",
-        "description": "Explorez la plateforme et entraînez-vous sur un compte démo avec un solde virtuel."
+        "description": "Explorez la plateforme et découvrez nos options d'investissement."
       },
       "deposit": {
         "title": "Dépôt",
@@ -86,9 +88,9 @@
       }
     },
     "quickStats": {
-      "minDeposit": "Dépôt minimum",
+      "minPeriod": "Période minimum",
       "minInvestment": "Investissement minimum",
-      "practiceAccount": "Compte démo"
+      "assetOptions": "Options d'actifs"
     }
   },
   "FeaturedIn": {

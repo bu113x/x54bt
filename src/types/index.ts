@@ -12,12 +12,10 @@ export interface HowItWorksStep {
 }
 
 export interface QuickStat {
-  id: "minDeposit" | "minInvestment" | "practiceAccount";
+  id: "minPeriod" | "minInvestment" | "assetOptions";
   value: string;
   icon: LucideIcon;
 }
-
-// ...(steps and quickStats unchanged)...
 
 export interface AdvantageBadge {
   value: string;

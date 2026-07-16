@@ -27,13 +27,84 @@ import {
   LayoutDashboard,
   Activity,
   Receipt,
+  Clock,
+  Coins,
 } from "lucide-react";
 import { Advantage, HowItWorksStep, PressMention, QuickStat } from "@/types";
 
+export const cryptoAssets = [
+  {
+    id: "btc",
+    symbol: "BTC",
+    name: "Bitcoin",
+    logo: bitcoin,
+    price: 67240.32,
+    bid: 67235.1,
+    ask: 67245.54,
+    changePercent: 2.4,
+    sparkline: [61000, 62200, 61800, 63500, 64200, 65800, 66500, 67240],
+  },
+  {
+    id: "eth",
+    symbol: "ETH",
+    name: "Ethereum",
+    logo: ethereum,
+    price: 3482.17,
+    bid: 3480.9,
+    ask: 3483.44,
+    changePercent: 1.1,
+    sparkline: [3200, 3260, 3210, 3340, 3300, 3420, 3390, 3482],
+  },
+  {
+    id: "sol",
+    symbol: "LTC",
+    name: "Litecoin",
+    logo: litecoin,
+    price: 45.16,
+    bid: 45.1,
+    ask: 45.2,
+    changePercent: -0.8,
+    sparkline: [45, 44.8, 44.6, 44.8, 44.4, 44.6, 44.3, 45.16],
+  },
+  {
+    id: "usdt",
+    symbol: "USDT",
+    name: "Tether",
+    logo: tether,
+    price: 1.0002,
+    bid: 1.0001,
+    ask: 1.0003,
+    changePercent: 0.01,
+    sparkline: [1.0001, 1.0002, 1.0, 1.0001, 1.0002, 1.0001, 1.0002, 1.0002],
+  },
+  {
+    id: "xrp",
+    symbol: "XRP",
+    name: "Ripple",
+    logo: ripple,
+    price: 0.6234,
+    bid: 0.6228,
+    ask: 0.624,
+    changePercent: -1.6,
+    sparkline: [0.66, 0.652, 0.648, 0.638, 0.63, 0.628, 0.626, 0.6234],
+  },
+  {
+    id: "ada",
+    symbol: "ADA",
+    name: "Cardano",
+    logo: cardano,
+    price: 0.4821,
+    bid: 0.4815,
+    ask: 0.4827,
+    changePercent: 3.2,
+    sparkline: [0.44, 0.445, 0.45, 0.462, 0.47, 0.475, 0.479, 0.4821],
+  },
+];
+
 export const quickStats: QuickStat[] = [
-  { id: "minDeposit", value: "$200", icon: Wallet },
-  { id: "minInvestment", value: "$500", icon: CircleDollarSign },
-  { id: "practiceAccount", value: "$10,000", icon: GraduationCap },
+  { id: "minInvestment", value: "$200", icon: CircleDollarSign },
+  { id: "minPeriod", value: "7 Days", icon: Clock },
+  { id: "assetOptions", value: "50+", icon: Coins },
 ];
 
 export const mockTestimonials: Testimonial[] = [

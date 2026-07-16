@@ -85,7 +85,7 @@ const Assets = () => {
       </div>
 
       <Link href="/signup">
-        <Button size="lg" className="mt-10">
+        <Button size="lg" className="mt-10 cursor-pointer">
           {t("cta")}
         </Button>
       </Link>
