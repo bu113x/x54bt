@@ -10,7 +10,6 @@ const Navbar = () => {
   const navLinks = [
     { href: "/assets", label: t("assets") },
     { href: "/advantages", label: t("advantages") },
-    { href: "/finance", label: t("finance") },
     { href: "/testimonials", label: t("testimonials") },
     { href: "/how-it-works", label: t("howItWorks") },
   ];
