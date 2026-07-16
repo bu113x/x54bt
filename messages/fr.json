@@ -52,17 +52,6 @@
     "supportTitle": "Support 24/7",
     "supportDescription": "Une équipe disponible à tout moment, tous les jours de l'année."
   },
-  "HowItWorks": {
-    "heading": "Commencez en quelques minutes",
-    "registerTitle": "Inscription",
-    "registerDescription": "Créez votre compte Bullex gratuit en moins d'une minute.",
-    "verifyTitle": "Vérification",
-    "verifyDescription": "Confirmez votre identité en une étape rapide.",
-    "depositTitle": "Dépôt",
-    "depositDescription": "Alimentez votre compte avec n'importe quelle cryptomonnaie prise en charge.",
-    "investTitle": "Investissement",
-    "investDescription": "Achetez, vendez et détenez plus de 50 actifs, 24h/24."
-  },
   "Markets": {
     "popularAssets": "Actifs populaires",
     "seeAll": "Voir tous les marchés",
@@ -76,5 +65,30 @@
     "subheading": "De vrais portefeuilles de vrais investisseurs. Pas de day trading, pas de timing de marché, juste un investissement régulier dans la durée.",
     "verified": "Vérifié",
     "investedIn": "A investi dans"
+  },
+  "HowItWorks": {
+    "badge": "Comment ça marche",
+    "heading": "Commencer, c'est simple",
+    "subheading": "3 étapes pour investir sur Bullex — du compte gratuit à votre premier achat.",
+    "cta": "Créer un compte",
+    "steps": {
+      "register": {
+        "title": "Inscription",
+        "description": "Créez un compte Bullex gratuit en quelques secondes, avec simplement votre email."
+      },
+      "explore": {
+        "title": "Découvrez la plateforme",
+        "description": "Explorez la plateforme et entraînez-vous sur un compte démo avec un solde virtuel."
+      },
+      "deposit": {
+        "title": "Dépôt",
+        "description": "Commencez à investir avec un dépôt minimum de seulement 10 $."
+      }
+    },
+    "quickStats": {
+      "minDeposit": "Dépôt minimum",
+      "minInvestment": "Investissement minimum",
+      "practiceAccount": "Compte démo"
+    }
   }
 }

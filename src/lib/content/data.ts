@@ -16,6 +16,31 @@ import {
   tether,
 } from "@/assets/coins";
 import type { Testimonial } from "@/types/testimonial";
+import type { LucideIcon } from "lucide-react";
+import {
+  UserPlus,
+  GraduationCap,
+  Wallet,
+  CircleDollarSign,
+} from "lucide-react";
+
+export interface HowItWorksStep {
+  id: "register" | "explore" | "deposit";
+  number: string;
+  icon: LucideIcon;
+}
+
+export interface QuickStat {
+  id: "minDeposit" | "minInvestment" | "practiceAccount";
+  value: string;
+  icon: LucideIcon;
+}
+
+export const quickStats: QuickStat[] = [
+  { id: "minDeposit", value: "$10", icon: Wallet },
+  { id: "minInvestment", value: "$500", icon: CircleDollarSign },
+  { id: "practiceAccount", value: "$10,000", icon: GraduationCap },
+];
 
 export const mockTestimonials: Testimonial[] = [
   {
@@ -121,27 +146,10 @@ export const mockAssets: Asset[] = [
   { symbol: "ADA", name: "Cardano", priceUsd: 0.45, change24hPct: 3.12 },
 ];
 
-export const steps = [
-  {
-    number: "01",
-    title: "Register",
-    description: "Create your free Bullex account in under a minute.",
-  },
-  {
-    number: "02",
-    title: "Verify",
-    description: "Confirm your identity with a quick verification step.",
-  },
-  {
-    number: "03",
-    title: "Deposit",
-    description: "Fund your account with any supported cryptocurrency.",
-  },
-  {
-    number: "04",
-    title: "Invest",
-    description: "Buy, sell, and hold from 50+ assets, 24/7.",
-  },
+export const steps: HowItWorksStep[] = [
+  { id: "register", number: "1", icon: UserPlus },
+  { id: "explore", number: "2", icon: GraduationCap },
+  { id: "deposit", number: "3", icon: Wallet },
 ];
 
 export const badges = [

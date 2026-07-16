@@ -52,17 +52,6 @@
     "supportTitle": "24/7 support",
     "supportDescription": "Real people available around the clock, every day of the year."
   },
-  "HowItWorks": {
-    "heading": "Get started in minutes",
-    "registerTitle": "Register",
-    "registerDescription": "Create your free Bullex account in under a minute.",
-    "verifyTitle": "Verify",
-    "verifyDescription": "Confirm your identity with a quick verification step.",
-    "depositTitle": "Deposit",
-    "depositDescription": "Fund your account with any supported cryptocurrency.",
-    "investTitle": "Invest",
-    "investDescription": "Buy, sell, and hold from 50+ assets, 24/7."
-  },
   "Markets": {
     "popularAssets": "Popular assets",
     "seeAll": "See all markets",
@@ -76,5 +65,30 @@
     "subheading": "Real portfolios from real investors. No day-trading, no timing the market, just consistent investing over time.",
     "verified": "Verified",
     "investedIn": "Invested in"
+  },
+  "HowItWorks": {
+    "badge": "How it works",
+    "heading": "It's Simple To Start",
+    "subheading": "3 steps to start investing on Bullex — from free account to your first purchase.",
+    "cta": "Create an account",
+    "steps": {
+      "register": {
+        "title": "Register",
+        "description": "Create a free Bullex account in seconds, using only your email."
+      },
+      "explore": {
+        "title": "Explore the platform",
+        "description": "Explore the platform and practice in a demo account with virtual balance."
+      },
+      "deposit": {
+        "title": "Deposit",
+        "description": "Start investing with a minimum deposit of just $10."
+      }
+    },
+    "quickStats": {
+      "minDeposit": "Minimum deposit",
+      "minInvestment": "Minimum investment",
+      "practiceAccount": "Practice account"
+    }
   }
 }
