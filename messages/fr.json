@@ -9,16 +9,28 @@
     "getStarted": "Commencer"
   },
   "Footer": {
-    "description": "Achetez, conservez et développez votre portefeuille crypto.",
+    "description": "Achetez, conservez et d\u00e9veloppez votre portefeuille crypto.",
     "product": "Produit",
     "company": "Entreprise",
-    "legal": "Mentions légales",
+    "legal": "Mentions l\u00e9gales",
+    "aboutBullex": "\u00c0 propos de Bullex",
+    "affiliates": "Affili\u00e9s",
+    "aml": "LCB-FT",
     "termsOfService": "Conditions d'utilisation",
-    "privacyPolicy": "Politique de confidentialité",
+    "privacyPolicy": "Politique de confidentialit\u00e9",
+    "paymentPolicy": "Politique de paiement",
+    "orderExecution": "Politique d'ex\u00e9cution des ordres",
+    "generalFees": "Frais g\u00e9n\u00e9raux",
     "riskDisclosure": "Avertissement sur les risques",
     "contact": "Contact",
-    "rights": "Tous droits réservés.",
-    "riskNote": "Investir comporte des risques, y compris la perte possible du capital."
+    "email": "E-mail : {email}",
+    "copyright": "{name} \u00a9 {year}. Tous droits r\u00e9serv\u00e9s.",
+    "rights": "Tous droits r\u00e9serv\u00e9s.",
+    "riskWarningTitle": "Avertissement sur les risques :",
+    "riskWarningText": "Les produits financiers propos\u00e9s par la soci\u00e9t\u00e9 comportent un niveau de risque \u00e9lev\u00e9 et peuvent entra\u00eener des pertes. Vous ne devez jamais investir de l'argent que vous ne pouvez pas vous permettre de perdre.",
+    "riskNote": "Investir comporte des risques, y compris la perte possible du capital.",
+    "addressDigitalSmartLLC": "Digital Smart LLC Adresse : Lighthouse Trust Nevis Ltd, Suite 1, A.L. Evelyn Ltd Building, Main Street, Charlestown, Nevis, Num\u00e9ro d'enregistrement L 22205",
+    "addressDigitalSmartCY": "Les transactions de paiement sont g\u00e9r\u00e9es par : DIGITAL SMART CY LIMITED Adresse : 6 Koutsoventi street, Agios Athanasios, 4101, Limassol, Chypre Num\u00e9ro d'entreprise : HE 410889"
   },
   "Hero": {
     "badge": "2 847 investisseurs ce mois-ci",

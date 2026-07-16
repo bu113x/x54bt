@@ -10,12 +10,12 @@ const Footer = () => {
     {
       key: "1",
       links: [
-        { href: `${siteConfig.dest_url}/about`, label: "About Bullex" },
+        { href: `${siteConfig.dest_url}/about`, label: t("aboutBullex") },
         {
           href: `https://affiliate.${siteConfig.dest_domain}/?ref_id=${siteConfig.dest_ref_id}`,
-          label: "Affiliates",
+          label: t("affiliates"),
         },
-        { href: `${siteConfig.dest_url}/legal/aml`, label: "AML" },
+        { href: `${siteConfig.dest_url}/legal/aml`, label: t("aml") },
       ],
     },
     {
@@ -23,15 +23,15 @@ const Footer = () => {
       links: [
         {
           href: `${siteConfig.dest_url}/legal/privacy-policy`,
-          label: "Privacy Policy",
+          label: t("privacyPolicy"),
         },
         {
           href: `${siteConfig.dest_url}/legal/payment-policy`,
-          label: "Payment Policy",
+          label: t("paymentPolicy"),
         },
         {
           href: `${siteConfig.dest_url}/legal/order-execution`,
-          label: "Order Execution Policy",
+          label: t("orderExecution"),
         },
       ],
     },
@@ -40,15 +40,15 @@ const Footer = () => {
       links: [
         {
           href: `${siteConfig.dest_url}/legal/terms`,
-          label: "Terms of Service",
+          label: t("termsOfService"),
         },
         {
           href: `${siteConfig.dest_url}/legal/general-fees`,
-          label: "General Fees",
+          label: t("generalFees"),
         },
         {
           href: `${siteConfig.dest_url}/legal/risk-disclosure`,
-          label: "Risk Disclosure",
+          label: t("riskDisclosure"),
         },
       ],
     },
@@ -61,11 +61,13 @@ const Footer = () => {
           <div>
             <Logo />
             <p className="mt-3 max-w-xs text-sm text-foreground-muted">
-              {siteConfig.name} &copy; {new Date().getFullYear()}{" "}
-              {siteConfig.name}. All rights reserved.
+              {t("copyright", {
+                name: siteConfig.name,
+                year: new Date().getFullYear(),
+              })}
             </p>
             <p className="mt-3 max-w-xs text-sm text-foreground-muted">
-              E-mail: {siteConfig.support_email}
+              {t("email", { email: siteConfig.support_email })}
             </p>
           </div>
 
@@ -93,24 +95,18 @@ const Footer = () => {
               className="font-bold text-white"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              Risk Warning:
+              {t("riskWarningTitle")}
             </span>
             <span className="text-foreground-muted">
-              The financial products offered by the company carry a high level
-              of risk and can result in losses. You should never invest money
-              that you cannot afford to lose.
+              {t("riskWarningText")}
             </span>
           </p>
 
           <p className="text-xxs text-foreground-muted">
-            Digital Smart LLC Address: Lighthouse Trust Nevis Ltd, Suite 1, A.L.
-            Evelyn Ltd Building, Main Street, Charlestown, Nevis, Registration
-            Number L 22205
+            {t("addressDigitalSmartLLC")}
           </p>
           <p className="text-xxs text-foreground-muted">
-            Payment transactions are managed by: DIGITAL SMART CY LIMITED
-            Address: 6 Koutsoventi street, Agios Athanasios, 4101, Limassol,
-            Cyprus Company business number: HE 410889
+            {t("addressDigitalSmartCY")}
           </p>
         </div>
       </div>

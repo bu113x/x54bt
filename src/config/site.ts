@@ -4,6 +4,8 @@
  * stays in one place instead of getting hardcoded across pages.
  */
 
+/* Investing involves risk, including possible loss of principal. */
+
 export const siteConfig = {
   name: "Bullex",
   description: "Buy, hold, and grow your crypto portfolio.",
