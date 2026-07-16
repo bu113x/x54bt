@@ -1,8 +1,8 @@
-import ripple from "./ripple.avif";
-import tether from "./tether.avif";
-import bitcoin from "./bitcoin.avif";
-import ethereum from "./ethereum.avif";
-import litecoin from "./litecoin.avif";
-import cardano from "./cardano.avif";
+import ripple from "./ripple.webp";
+import tether from "./tether.webp";
+import bitcoin from "./bitcoin.webp";
+import ethereum from "./ethereum.webp";
+import litecoin from "./litecoin.webp";
+import cardano from "./cardano.webp";
 
 export { ripple, tether, bitcoin, ethereum, litecoin, cardano };

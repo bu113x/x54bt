@@ -1,6 +1,6 @@
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
-import { mockAssets } from "@/lib/markets/data";
+import { mockAssets } from "@/lib/content/data";
 import PriceTickerMarquee from "@/components/landing/price-ticker-marquee";
 
 const LandingLayout = ({ children }: { children: React.ReactNode }) => {

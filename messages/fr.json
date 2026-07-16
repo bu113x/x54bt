@@ -69,5 +69,12 @@
     "asset": "Actif",
     "price": "Prix",
     "change24h": "24h"
+  },
+  "Testimonials": {
+    "badge": "Témoignages",
+    "heading": "Des investisseurs qui <highlight>ont grandi avec nous</highlight>",
+    "subheading": "De vrais portefeuilles de vrais investisseurs. Pas de day trading, pas de timing de marché, juste un investissement régulier dans la durée.",
+    "verified": "Vérifié",
+    "investedIn": "A investi dans"
   }
 }

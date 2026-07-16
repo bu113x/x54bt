@@ -102,7 +102,7 @@ body {
 
 /*
   Marquee ticker animation. The track holds exactly two equal-width halves
-  (see components/markets/price-ticker-marquee.tsx) and translates exactly
+  (see components/landing/price-ticker-marquee.tsx) and translates exactly
   -50% — the width of one half — so the loop has no visible seam.
   translate3d + will-change force GPU compositing so the loop restart
   doesn't produce a visible stutter/jump.

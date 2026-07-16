@@ -1,6 +1,6 @@
 import Link from "next/link";
 import PriceTable from "../ui/price-table";
-import { mockAssets } from "@/lib/markets/data";
+import { mockAssets } from "@/lib/content/data";
 
 const PopularAssets = () => {
   return (

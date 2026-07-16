@@ -69,5 +69,12 @@
     "asset": "Asset",
     "price": "Price",
     "change24h": "24h"
+  },
+  "Testimonials": {
+    "badge": "Success stories",
+    "heading": "Investors who <highlight>grew with us</highlight>",
+    "subheading": "Real portfolios from real investors. No day-trading, no timing the market, just consistent investing over time.",
+    "verified": "Verified",
+    "investedIn": "Invested in"
   }
 }

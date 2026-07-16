@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Asset } from "@/types/asset";
 import { Badge } from "@/components/ui/badge";
-import { formatPrice } from "@/lib/markets/format";
+import { formatPrice } from "@/lib/content/format";
 
 const PriceTable = ({ assets }: { assets: Asset[] }) => {
   return (
@@ -22,7 +22,7 @@ const PriceTable = ({ assets }: { assets: Asset[] }) => {
             >
               <td className="px-6 py-4">
                 <Link
-                  href={`/markets/${asset.symbol.toLowerCase()}`}
+                  href={`/assets/${asset.symbol.toLowerCase()}`}
                   className="flex items-center gap-3 hover:underline"
                 >
                   <span

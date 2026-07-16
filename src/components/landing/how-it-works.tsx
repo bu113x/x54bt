@@ -1,4 +1,4 @@
-import { steps } from "@/lib/markets/data";
+import { steps } from "@/lib/content/data";
 
 const HowItWorks = () => {
   return (

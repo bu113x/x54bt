@@ -1,8 +1,8 @@
 import Hero from "@/components/landing/hero";
 import TrustBadges from "@/components/landing/trust-badges";
 import HowItWorks from "@/components/landing/how-it-works";
-import PopularAssets from "@/components/landing/popular-assets";
 import Assets from "@/components/sections/assets";
+import Testimonials from "@/components/landing/testimonials";
 
 export default function Home() {
   return (
@@ -10,7 +10,7 @@ export default function Home() {
       <Hero />
       <TrustBadges />
       <HowItWorks />
-      <PopularAssets />
+      <Testimonials />
       <Assets />
     </>
   );

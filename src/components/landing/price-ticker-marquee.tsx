@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import type { Asset } from "@/types/asset";
-import { formatPrice } from "@/lib/markets/format";
+import { formatPrice } from "@/lib/content/format";
 
 const SPEED_PX_PER_SEC = 40;
 const COPIES = 4;

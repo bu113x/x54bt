@@ -1,4 +1,4 @@
-import { badges } from "@/lib/markets/data";
+import { badges } from "@/lib/content/data";
 
 const TrustBadges = () => {
   return (
