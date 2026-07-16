@@ -1,9 +1,16 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import LivePortfolioPreview from "./live-portfolio-preview";
+import { davidK, jenniferL, lisaM, robertT } from "@/assets/investors";
+import Image from "next/image";
 
 const Hero = () => {
-  const avatarInitials = ["JD", "MK", "SA", "RT"];
+  const ratings = [
+    { initial: "JL", avatar: jenniferL },
+    { initial: "DK", avatar: davidK },
+    { initial: "LM", avatar: lisaM },
+    { initial: "RT", avatar: robertT },
+  ];
 
   return (
     <section className="mx-auto grid max-w-7xl items-center gap-16 px-6 pb-20 pt-20 lg:grid-cols-2">
@@ -59,10 +66,10 @@ const Hero = () => {
 
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <Link href="/signup">
-            <Button size="lg">Start investing</Button>
+            <Button size="lg" className="cursor-pointer">Start investing</Button>
           </Link>
           <Link href="/markets">
-            <Button variant="secondary" size="lg">
+            <Button variant="secondary" size="lg" className="cursor-pointer">
               View markets
             </Button>
           </Link>
@@ -70,13 +77,23 @@ const Hero = () => {
 
         <div className="mt-8 flex items-center gap-3">
           <div className="flex -space-x-2">
-            {avatarInitials.map((initials) => (
-              <span
-                key={initials}
-                className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-background bg-surface-elevated text-xs font-medium"
-              >
-                {initials}
-              </span>
+            {ratings.map((rating) => (
+              <div key={rating.initial} className="relative cursor-pointer">
+                {rating.avatar ? (
+                  <Image
+                    src={rating.avatar}
+                    alt={`${rating.initial} avatar`}
+                    className="w-8 h-8 border-2 border-primary rounded-full"
+                  />
+                ) : (
+                  <span
+                    key={rating.initial}
+                    className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-background bg-surface-elevated text-xs font-medium"
+                  >
+                    {rating.initial}
+                  </span>
+                )}
+              </div>
             ))}
           </div>
           <div>

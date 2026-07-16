@@ -40,11 +40,11 @@
   --color-fg: var(--white);
   --color-fg-muted: var(--shark-400);
 
-  --color-primary: var(--green-500);
-  --color-primary-hover: var(--green-400);
+  --color-primary: var(--gold-500);
+  --color-primary-hover: var(--gold-400);
   --color-on-primary: var(
     --shark-950
-  ); /* text/icon color when sitting on green */
+  ); /* text/icon color when sitting on gold */
 
   --color-success: var(--market-up);
   --color-danger: var(--market-down);
