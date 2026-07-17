@@ -181,5 +181,23 @@
     "heading": "Dans quoi vous pouvez investir",
     "description": "Nous proposons une large gamme de cryptomonnaies et d'autres actifs numériques dans lesquels investir. Commencez à construire votre portefeuille dès aujourd'hui et profitez de la croissance du marché crypto.",
     "cta": "Créer un compte"
+  },
+  "SignUp": {
+    "badge": "Commencer",
+    "heading": "Créez votre compte",
+    "subheading": "Commencez à investir en crypto en moins de 2 minutes.",
+    "fullNameLabel": "Nom complet",
+    "fullNamePlaceholder": "Jean Dupont",
+    "emailLabel": "Adresse e-mail",
+    "emailPlaceholder": "vous@exemple.com",
+    "passwordLabel": "Mot de passe",
+    "passwordPlaceholder": "Créez un mot de passe",
+    "termsPrefix": "En vous inscrivant, vous acceptez nos",
+    "termsLink": "Conditions d'utilisation",
+    "termsAnd": "et notre",
+    "privacyLink": "Politique de confidentialité",
+    "cta": "Créer un compte",
+    "hasAccount": "Vous avez déjà un compte ?",
+    "signIn": "Se connecter"
   }
 }

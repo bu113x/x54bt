@@ -181,5 +181,23 @@
     "heading": "What you can invest in",
     "description": "We offer a wide range of cryptocurrencies and other digital assets for you to invest in. Start building your portfolio today and take advantage of the growing crypto market.",
     "cta": "Create an account"
+  },
+  "SignUp": {
+    "badge": "Get started",
+    "heading": "Create your account",
+    "subheading": "Start investing in crypto in under 2 minutes.",
+    "fullNameLabel": "Full name",
+    "fullNamePlaceholder": "John Doe",
+    "emailLabel": "Email address",
+    "emailPlaceholder": "you@example.com",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "Create a password",
+    "termsPrefix": "By signing up, you agree to our",
+    "termsLink": "Terms of Service",
+    "termsAnd": "and",
+    "privacyLink": "Privacy Policy",
+    "cta": "Create account",
+    "hasAccount": "Already have an account?",
+    "signIn": "Sign in"
   }
 }
