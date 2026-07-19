@@ -47,7 +47,7 @@ const ForgotPassword = () => {
         subtitle={t("sentSubtitle")}
       >
         <Link
-          href="/signin"
+          href="/sign-in"
           className="text-sm font-medium text-success hover:underline"
         >
           {t("backToSignIn")}
@@ -65,7 +65,7 @@ const ForgotPassword = () => {
         <span className="text-foreground-muted">
           {t("rememberPassword")}{" "}
           <Link
-            href="/signin"
+            href="/sign-in"
             className="font-medium text-success hover:underline"
           >
             {t("signIn")}

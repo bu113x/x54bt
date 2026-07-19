@@ -38,7 +38,7 @@ const ResetPassword = () => {
       return;
     }
 
-    router.push("/signin");
+    router.push("/sign-in");
   };
 
   return (

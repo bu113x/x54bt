@@ -54,7 +54,7 @@ const SignUp = () => {
         <span className="text-foreground-muted">
           {t("hasAccount")}{" "}
           <Link
-            href="/signin"
+            href="/sign-in"
             className="font-medium text-success hover:underline"
           >
             {t("signIn")}
