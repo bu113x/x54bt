@@ -52,3 +52,17 @@ export interface RiskTierInfo {
   historicalRangeLabel: string; // e.g. "6% – 14% / mo, historical"
   performanceFeePercent: number; // platform's cut of realized profit on this tier
 }
+
+export interface ExplorableAsset {
+  id: string;
+  symbol: string;
+  name: string;
+  logo: StaticImageData;
+  price: number;
+  changePercent24h: number;
+  riskTier: RiskTier;
+  historicalRangeLabel: string; // e.g. "8% – 16% / mo, historical"
+  performanceFeePercent: number;
+  minInvestment: number;
+  sparkline: number[];
+}

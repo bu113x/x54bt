@@ -293,5 +293,20 @@
   "Activity": {
     "recentActivity": "Activité récente",
     "viewLedger": "Voir le registre"
+  },
+  "RiskTiers": {
+    "all": "Tous",
+    "conservative": "Prudent",
+    "balanced": "Équilibré",
+    "aggressive": "Agressif"
+  },
+  "Explore": {
+    "heading": "Explorer",
+    "subheading": "Parcourez les actifs et stratégies par niveau de risque",
+    "24h": "24h",
+    "historicalRange": "Fourchette historique",
+    "minInvestment": "Investissement min.",
+    "searchPlaceholder": "Rechercher des actifs…",
+    "noResults": "Aucun actif ne correspond à vos filtres."
   }
 }

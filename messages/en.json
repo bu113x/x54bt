@@ -293,5 +293,20 @@
   "Activity": {
     "recentActivity": "Recent Activity",
     "viewLedger": "View ledger"
+  },
+  "RiskTiers": {
+    "all": "All",
+    "conservative": "Conservative",
+    "balanced": "Balanced",
+    "aggressive": "Aggressive"
+  },
+  "Explore": {
+    "heading": "Explore",
+    "subheading": "Browse assets and strategies by risk tier",
+    "24h": "24h",
+    "historicalRange": "Historical range",
+    "minInvestment": "Min. investment",
+    "searchPlaceholder": "Search assets…",
+    "noResults": "No assets match your filters."
   }
 }
