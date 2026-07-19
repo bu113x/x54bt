@@ -260,5 +260,38 @@
     "missingToken": "Ce lien de réinitialisation est invalide. Veuillez en demander un nouveau.",
     "passwordMismatch": "Les mots de passe ne correspondent pas.",
     "genericError": "Une erreur est survenue. Veuillez réessayer."
+  },
+  "RiskDisclosure": {
+    "message": "L'investissement et le trading de cryptomonnaies comportent des risques, y compris la perte possible de votre capital. Les performances passées présentées ici sont historiques et ne garantissent pas les résultats futurs. N'investissez que les fonds que vous pouvez vous permettre de perdre."
+  },
+  "Sidebar": {
+    "overview": "Aperçu",
+    "explore": "Explorer",
+    "portfolio": "Portefeuille",
+    "ledger": "Registre",
+    "support": "Assistance",
+    "account": "Compte",
+    "signOut": "Déconnexion"
+  },
+  "Overview": {
+    "heading": "Aperçu",
+    "subheading": "Les performances de votre portefeuille en un coup d'œil",
+    "totalValue": "Valeur totale",
+    "allTime": "depuis le début",
+    "netProfit": "Bénéfice net",
+    "afterFees": "après frais de performance",
+    "totalDeposited": "Total déposé",
+    "performanceFeePaid": "Frais de performance payés",
+    "performanceFeeNote": "notre part du bénéfice réalisé",
+    "portfolioPerformance": "Performance du portefeuille",
+    "last6Months": "6 derniers mois"
+  },
+  "Portfolio": {
+    "activePositions": "Positions actives",
+    "viewAll": "Tout voir"
+  },
+  "Activity": {
+    "recentActivity": "Activité récente",
+    "viewLedger": "Voir le registre"
   }
 }
