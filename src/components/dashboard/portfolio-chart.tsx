@@ -42,8 +42,16 @@ const PortfolioChart = ({ data }: { data: PortfolioHistoryPoint[] }) => {
         >
           <defs>
             <linearGradient id="portfolioGradient" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="var(--success)" stopOpacity={0.35} />
-              <stop offset="100%" stopColor="var(--success)" stopOpacity={0} />
+              <stop
+                offset="0%"
+                stopColor="var(--portfolio-chart-gradient-start)"
+                stopOpacity={0.35}
+              />
+              <stop
+                offset="100%"
+                stopColor="var(--portfolio-chart-gradient-end)"
+                stopOpacity={0}
+              />
             </linearGradient>
           </defs>
           <XAxis
@@ -51,14 +59,14 @@ const PortfolioChart = ({ data }: { data: PortfolioHistoryPoint[] }) => {
             tickFormatter={formatMonth}
             axisLine={false}
             tickLine={false}
-            tick={{ fill: "var(--foreground-muted)", fontSize: 11 }}
+            tick={{ fill: "var(--gold-500)", fontSize: 11 }}
           />
           <YAxis hide domain={["dataMin - 500", "dataMax + 500"]} />
           <Tooltip content={<CustomTooltip />} />
           <Area
             type="monotone"
             dataKey="value"
-            stroke="var(--success)"
+            stroke="var(--primary)"
             strokeWidth={2}
             fill="url(#portfolioGradient)"
           />

@@ -50,6 +50,12 @@
   --color-danger: var(--market-down);
 
   --radius-card: 0.75rem;
+
+  /* Gold area-chart gradient stops, for SVG <linearGradient> defs
+     (e.g. recharts Area fills). Consumed via stop-color, not `fill: var(...)` —
+     SVG gradients can't be stored directly in a CSS custom property. */
+  --portfolio-chart-gradient-start: var(--gold-500);
+  --portfolio-chart-gradient-end: var(--gold-500);
 }
 
 /*
@@ -92,6 +98,9 @@
   --font-sans: var(--font-inter);
   --font-display: var(--font-space-grotesk);
   --font-mono: var(--font-geist-mono);
+
+  --portfolio-chart-gradient-start: var(--portfolio-chart-gradient-start);
+  --portfolio-chart-gradient-end: var(--portfolio-chart-gradient-end);
 }
 
 body {

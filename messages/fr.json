@@ -287,8 +287,21 @@
     "last6Months": "6 derniers mois"
   },
   "Portfolio": {
+    "heading": "Portefeuille",
+    "subheading": "Toutes vos positions au même endroit",
+    "totalValue": "Valeur totale",
+    "netProfit": "Bénéfice net",
+    "afterFees": "après frais de performance",
     "activePositions": "Positions actives",
-    "viewAll": "Tout voir"
+    "viewAll": "Tout voir",
+    "active": "Actives",
+    "closed": "Clôturées",
+    "asset": "Actif",
+    "riskTier": "Niveau de risque",
+    "invested": "Investi",
+    "currentValue": "Valeur actuelle",
+    "pnl": "P&L",
+    "noPositions": "Aucune position dans cette catégorie pour le moment."
   },
   "Activity": {
     "recentActivity": "Activité récente",
@@ -298,7 +311,8 @@
     "all": "Tous",
     "conservative": "Prudent",
     "balanced": "Équilibré",
-    "aggressive": "Agressif"
+    "aggressive": "Agressif",
+    "allocationByRisk": "Répartition par niveau de risque"
   },
   "Explore": {
     "heading": "Explorer",

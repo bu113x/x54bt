@@ -288,7 +288,20 @@
   },
   "Portfolio": {
     "activePositions": "Active Positions",
-    "viewAll": "View all"
+    "viewAll": "View all",
+    "heading": "Portfolio",
+    "subheading": "All your positions in one place",
+    "totalValue": "Total Value",
+    "netProfit": "Net Profit",
+    "afterFees": "after performance fee",
+    "active": "Active",
+    "closed": "Closed",
+    "asset": "Asset",
+    "riskTier": "Risk Tier",
+    "invested": "Invested",
+    "currentValue": "Current Value",
+    "pnl": "P&L",
+    "noPositions": "No positions in this category yet."
   },
   "Activity": {
     "recentActivity": "Recent Activity",
@@ -298,7 +311,8 @@
     "all": "All",
     "conservative": "Conservative",
     "balanced": "Balanced",
-    "aggressive": "Aggressive"
+    "aggressive": "Aggressive",
+    "allocationByRisk": "Allocation by risk"
   },
   "Explore": {
     "heading": "Explore",

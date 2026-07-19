@@ -8,6 +8,7 @@ import {
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import type { ActivityItem, ActivityType } from "@/types/investment";
+import { formatCurrency, formatDate } from "@/lib/content/format";
 
 const iconMap: Record<ActivityType, typeof ArrowDownToLine> = {
   deposit: ArrowDownToLine,
@@ -16,17 +17,6 @@ const iconMap: Record<ActivityType, typeof ArrowDownToLine> = {
   position_closed: TrendingDown,
   profit_distribution: CircleDollarSign,
 };
-
-const formatCurrency = (value: number) => {
-  const sign = value >= 0 ? "+" : "-";
-  return `${sign}$${Math.abs(value).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-};
-
-const formatDate = (iso: string) =>
-  new Date(iso).toLocaleDateString(undefined, {
-    month: "short",
-    day: "numeric",
-  });
 
 const ActivityFeed = ({ items }: { items: ActivityItem[] }) => {
   const t = useTranslations("Activity");
@@ -55,7 +45,7 @@ const ActivityFeed = ({ items }: { items: ActivityItem[] }) => {
                 <div>
                   <p className="text-sm">{item.description}</p>
                   <p className="text-xs text-foreground-muted">
-                    {formatDate(item.timestamp)}
+                    {formatDate(item.timestamp, "en-US")}
                   </p>
                 </div>
               </div>

@@ -225,3 +225,32 @@ export const mockExplorableAssets: ExplorableAsset[] = [
     sparkline: [33.2, 34.8, 36.1, 35.4, 38.9, 40.2, 42.18],
   },
 ];
+
+export const mockClosedPositions: Position[] = [
+  {
+    id: "pos_c1",
+    assetSymbol: "BTC",
+    assetName: "Bitcoin",
+    assetLogo: bitcoin,
+    riskTier: "balanced",
+    amountInvested: 1000,
+    currentValue: 1184.5,
+    pnl: 184.5,
+    pnlPercent: 18.45,
+    openedAt: "2026-04-10",
+    status: "closed",
+  },
+  {
+    id: "pos_c2",
+    assetSymbol: "ADA",
+    assetName: "Cardano",
+    assetLogo: cardano,
+    riskTier: "aggressive",
+    amountInvested: 800,
+    currentValue: 742.2,
+    pnl: -57.8,
+    pnlPercent: -7.23,
+    openedAt: "2026-03-22",
+    status: "closed",
+  },
+];
