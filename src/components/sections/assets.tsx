@@ -84,7 +84,7 @@ const Assets = () => {
         <CryptoMarquee assets={assets} speed={28} />
       </div>
 
-      <Link href="/signup">
+      <Link href="/sign-up">
         <Button size="lg" className="mt-10 cursor-pointer">
           {t("cta")}
         </Button>

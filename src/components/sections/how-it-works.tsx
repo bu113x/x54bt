@@ -53,7 +53,7 @@ const HowItWorks = () => {
         ))}
       </div>
 
-      <Link href="/signup">
+      <Link href="/sign-up">
         <Button size="lg" className="mt-12 cursor-pointer">
           {t("cta")}
         </Button>

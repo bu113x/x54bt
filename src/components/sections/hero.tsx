@@ -73,7 +73,7 @@ const Hero = () => {
         </div>
 
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-          <Link href="/signup">
+          <Link href="/sign-up">
             <Button size="lg" className="cursor-pointer">
               {t("startInvesting")}
             </Button>

@@ -34,12 +34,12 @@ const Navbar = () => {
         <div className="flex items-center gap-3">
           <LanguageSwitcher />
           <Link
-            href="/login"
+            href="/sign-in"
             className="hidden text-sm text-foreground-muted transition-colors hover:text-foreground sm:block"
           >
             {t("signIn")}
           </Link>
-          <Link href="/signup">
+          <Link href="/sign-up">
             <Button size="sm" className="cursor-pointer">
               {t("getStarted")}
             </Button>

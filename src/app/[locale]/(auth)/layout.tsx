@@ -27,11 +27,8 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
         <div className="pointer-events-none absolute -left-24 top-1/4 h-72 w-72 rounded-full bg-success/20 blur-[100px]" />
         <div className="pointer-events-none absolute -right-24 bottom-1/4 h-72 w-72 rounded-full bg-primary/20 blur-[100px]" />
 
-        <Link href="/" className="relative z-10 flex items-center gap-2">
-          <Logo />
-        </Link>
+        <Logo />
 
-        {/* Floating ticker cards */}
         <div className="relative z-10 flex flex-col gap-4">
           <div className="w-fit rounded-card border border-border bg-background/60 px-5 py-4 backdrop-blur-sm">
             <p className="text-xs uppercase tracking-wide text-foreground-muted">
@@ -66,9 +63,7 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
       </div>
 
       <div className="flex w-full flex-1 flex-col items-center justify-center px-6 py-12 lg:w-1/2">
-        <Link href="/" className="mb-10 flex items-center gap-2 lg:hidden">
-          <Logo />
-        </Link>
+        <Logo />
 
         {children}
       </div>

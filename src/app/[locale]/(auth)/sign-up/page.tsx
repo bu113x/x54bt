@@ -2,19 +2,47 @@
 
 import React, { useState } from "react";
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
+import { Link, useRouter } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
 import AuthCard from "@/components/auth/auth-card";
 import FormField from "@/components/auth/form-field";
 import PasswordField from "@/components/auth/password-field";
+import { createClient } from "@/lib/supabase/client";
 
 const SignUp = () => {
   const t = useTranslations("SignUp");
+  const router = useRouter();
   const [agreed, setAgreed] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // wire up to your signup mutation here
+    setError(null);
+
+    const formData = new FormData(e.currentTarget);
+    const name = String(formData.get("fullName") ?? "");
+    const email = String(formData.get("email") ?? "");
+    const password = String(formData.get("password") ?? "");
+
+    setIsSubmitting(true);
+    const supabase = createClient();
+    const { error: signUpError } = await supabase.auth.signUp({
+      email,
+      password,
+      options: {
+        data: { name },
+        emailRedirectTo: `${process.env.NEXT_PUBLIC_APP_URL}/auth/callback`,
+      },
+    });
+    setIsSubmitting(false);
+
+    if (signUpError) {
+      setError(signUpError.message ?? t("genericError"));
+      return;
+    }
+
+    router.push("/verify-email");
   };
 
   return (
@@ -37,6 +65,7 @@ const SignUp = () => {
       <form onSubmit={handleSubmit} className="flex flex-col gap-5">
         <FormField
           id="fullName"
+          name="fullName"
           label={t("fullNameLabel")}
           placeholder={t("fullNamePlaceholder")}
           autoComplete="name"
@@ -45,6 +74,7 @@ const SignUp = () => {
 
         <FormField
           id="email"
+          name="email"
           type="email"
           label={t("emailLabel")}
           placeholder={t("emailPlaceholder")}
@@ -54,6 +84,7 @@ const SignUp = () => {
 
         <PasswordField
           id="password"
+          name="password"
           label={t("passwordLabel")}
           placeholder={t("passwordPlaceholder")}
           autoComplete="new-password"
@@ -86,8 +117,15 @@ const SignUp = () => {
           </span>
         </label>
 
-        <Button type="submit" size="lg" className="mt-2 w-full cursor-pointer">
-          {t("cta")}
+        {error && <p className="text-sm text-danger">{error}</p>}
+
+        <Button
+          type="submit"
+          size="lg"
+          className="mt-2 w-full cursor-pointer"
+          disabled={isSubmitting}
+        >
+          {isSubmitting ? t("submitting") : t("cta")}
         </Button>
       </form>
     </AuthCard>
