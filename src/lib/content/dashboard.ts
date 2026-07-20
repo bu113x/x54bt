@@ -15,6 +15,23 @@ import type {
   ExplorableAsset,
   LedgerTransaction,
 } from "@/types/investment";
+import type { NotificationPreferences, UserProfile } from "@/types/investment";
+
+export const mockUserProfile: UserProfile = {
+  fullName: "Ahmad Hustler",
+  email: "ahmad@example.com",
+  emailVerified: true,
+  phone: "+234 801 234 5678",
+  country: "Nigeria",
+  memberSince: "2026-01-14",
+};
+
+export const mockNotificationPreferences: NotificationPreferences = {
+  emailDeposits: true,
+  emailProfitDistributions: true,
+  emailMarketing: false,
+  pushPriceAlerts: true,
+};
 
 export const mockLedgerTransactions: LedgerTransaction[] = [
   {

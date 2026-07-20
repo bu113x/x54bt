@@ -79,3 +79,20 @@ export interface LedgerTransaction {
   timestamp: string; // ISO
   reference: string;
 }
+
+export interface UserProfile {
+  fullName: string;
+  email: string;
+  emailVerified: boolean;
+  phone?: string;
+  country?: string;
+  memberSince: string; // ISO date
+  avatarUrl?: string;
+}
+
+export interface NotificationPreferences {
+  emailDeposits: boolean;
+  emailProfitDistributions: boolean;
+  emailMarketing: boolean;
+  pushPriceAlerts: boolean;
+}
