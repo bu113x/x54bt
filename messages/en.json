@@ -384,5 +384,48 @@
     "heading": "Support",
     "subheading": "Get help or find answers to common questions",
     "faqHeading": "Frequently Asked Questions"
+  },
+  "AssetDetail": {
+    "24h": "24h",
+    "investNow": "Invest Now",
+    "riskTier": "Risk Tier",
+    "historicalRange": "Historical Range",
+    "performanceFee": "Performance Fee",
+    "minInvestment": "Min. Investment",
+    "about": "About",
+    "strategy": "Strategy"
+  },
+  "Invest": {
+    "title": {
+      "amount": "Invest in {symbol}",
+      "confirm": "Confirm Investment",
+      "success": "Investment Placed",
+      "error": "Something Went Wrong"
+    },
+    "amountLabel": "Amount to invest",
+    "minMax": "Min {min} · Max {max}",
+    "estimatedReturn": "Estimated net return",
+    "feeNote": "After a {fee}% performance fee on realized profit only",
+    "riskNote": "Trading and investing are risky. Returns are not guaranteed, and you could lose some or all of your investment. Only invest what you can afford to lose.",
+    "continue": "Continue",
+    "asset": "Asset",
+    "amount": "Amount",
+    "performanceFee": "Performance Fee",
+    "estimatedNetReturn": "Est. Net Return",
+    "confirmRiskNote": "By confirming, you acknowledge this investment is not guaranteed and carries risk of loss.",
+    "back": "Back",
+    "confirmInvest": "Confirm Investment",
+    "processing": "Processing…",
+    "successHeading": "You're all set",
+    "successBody": "Your investment of {amount} in {symbol} has been placed.",
+    "done": "Done",
+    "errorHeading": "We couldn't place your investment",
+    "tryAgain": "Try Again",
+    "genericError": "Something went wrong. Please try again.",
+    "riskTier": {
+      "conservative": "Conservative",
+      "balanced": "Balanced",
+      "aggressive": "Aggressive"
+    }
   }
 }

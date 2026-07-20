@@ -384,5 +384,48 @@
     "heading": "Assistance",
     "subheading": "Obtenez de l'aide ou trouvez des réponses aux questions courantes",
     "faqHeading": "Questions fréquemment posées"
+  },
+  "AssetDetail": {
+    "24h": "24h",
+    "investNow": "Investir maintenant",
+    "riskTier": "Niveau de risque",
+    "historicalRange": "Fourchette historique",
+    "performanceFee": "Frais de performance",
+    "minInvestment": "Investissement min.",
+    "about": "À propos",
+    "strategy": "Stratégie"
+  },
+  "Invest": {
+    "title": {
+      "amount": "Investir dans {symbol}",
+      "confirm": "Confirmer l'investissement",
+      "success": "Investissement effectué",
+      "error": "Une erreur s'est produite"
+    },
+    "amountLabel": "Montant à investir",
+    "minMax": "Min {min} · Max {max}",
+    "estimatedReturn": "Rendement net estimé",
+    "feeNote": "Après des frais de performance de {fee}% sur le bénéfice réalisé uniquement",
+    "riskNote": "Le trading et l'investissement comportent des risques. Les rendements ne sont pas garantis, et vous pourriez perdre une partie ou la totalité de votre investissement. N'investissez que ce que vous pouvez vous permettre de perdre.",
+    "continue": "Continuer",
+    "asset": "Actif",
+    "amount": "Montant",
+    "performanceFee": "Frais de performance",
+    "estimatedNetReturn": "Rendement net est.",
+    "confirmRiskNote": "En confirmant, vous reconnaissez que cet investissement n'est pas garanti et comporte un risque de perte.",
+    "back": "Retour",
+    "confirmInvest": "Confirmer l'investissement",
+    "processing": "Traitement…",
+    "successHeading": "Tout est en ordre",
+    "successBody": "Votre investissement de {amount} dans {symbol} a été effectué.",
+    "done": "Terminé",
+    "errorHeading": "Nous n'avons pas pu traiter votre investissement",
+    "tryAgain": "Réessayer",
+    "genericError": "Une erreur s'est produite. Veuillez réessayer.",
+    "riskTier": {
+      "conservative": "Prudent",
+      "balanced": "Équilibré",
+      "aggressive": "Agressif"
+    }
   }
 }

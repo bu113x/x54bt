@@ -18,7 +18,37 @@ import type {
   SupportChannel,
   NotificationPreferences,
   UserProfile,
+  AssetDetail,
 } from "@/types/investment";
+
+export const mockAssetDetails: Record<string, AssetDetail> = {
+  btc: {
+    id: "asset_btc",
+    symbol: "BTC",
+    name: "Bitcoin",
+    logo: bitcoin,
+    price: 67240.32,
+    changePercent24h: 2.41,
+    riskTier: "balanced",
+    historicalRangeLabel: "8% – 16% / mo, historical",
+    performanceFeePercent: 20,
+    minInvestment: 100,
+    maxInvestment: 50000,
+    priceHistory: [
+      { date: "2026-01-19", price: 58200 },
+      { date: "2026-02-19", price: 60100 },
+      { date: "2026-03-19", price: 59400 },
+      { date: "2026-04-19", price: 62800 },
+      { date: "2026-05-19", price: 64200 },
+      { date: "2026-06-19", price: 65900 },
+      { date: "2026-07-19", price: 67240.32 },
+    ],
+    about:
+      "Bitcoin is the largest cryptocurrency by market cap, used here as the underlying asset for our balanced-tier trading strategy.",
+    strategyDescription:
+      "Funds allocated to this asset are actively traded by our team using a mix of trend-following and mean-reversion strategies. Historical monthly performance has ranged from 8% to 16%, though this is not a guarantee of future results.",
+  },
+};
 
 export const mockFaqItems: FaqItem[] = [
   {

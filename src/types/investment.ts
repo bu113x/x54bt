@@ -110,3 +110,30 @@ export interface SupportChannel {
   value: string;
   availability: string;
 }
+
+export interface AssetDetail {
+  id: string;
+  symbol: string;
+  name: string;
+  logo: StaticImageData;
+  price: number;
+  changePercent24h: number;
+  riskTier: RiskTier;
+  historicalRangeLabel: string;
+  performanceFeePercent: number;
+  minInvestment: number;
+  maxInvestment: number;
+  priceHistory: { date: string; price: number }[];
+  about: string;
+  strategyDescription: string;
+}
+
+export interface InvestmentEstimate {
+  amount: number;
+  estimatedGrossReturnLow: number;
+  estimatedGrossReturnHigh: number;
+  estimatedFeeLow: number;
+  estimatedFeeHigh: number;
+  estimatedNetReturnLow: number;
+  estimatedNetReturnHigh: number;
+}
