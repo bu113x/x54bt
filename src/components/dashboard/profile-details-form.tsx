@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import FormField from "@/components/auth/form-field";
 import SettingsSection from "@/components/dashboard/settings";
-import { createClient } from "@/lib/supabase/client";
+import { supabase } from "@/lib/supabase/client";
 import type { UserProfile } from "@/types/investment";
 
 const ProfileDetailsForm = ({ profile }: { profile: UserProfile }) => {
@@ -20,18 +20,40 @@ const ProfileDetailsForm = ({ profile }: { profile: UserProfile }) => {
     setSaved(false);
 
     const formData = new FormData(e.currentTarget);
-    const full_name = String(formData.get("fullName") ?? "");
+    const fullName = String(formData.get("fullName") ?? "");
     const phone = String(formData.get("phone") ?? "");
 
     setIsSubmitting(true);
-    const supabase = createClient();
-    const { error: updateError } = await supabase.auth.updateUser({
-      data: { full_name, phone },
+
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+
+    if (!user) {
+      setIsSubmitting(false);
+      setError(t("genericError"));
+      return;
+    }
+
+    const { error: profileError } = await supabase
+      .from("profiles")
+      .update({ full_name: fullName, phone })
+      .eq("id", user.id);
+
+    if (profileError) {
+      setIsSubmitting(false);
+      setError(profileError.message ?? t("genericError"));
+      return;
+    }
+
+    const { error: authError } = await supabase.auth.updateUser({
+      data: { full_name: fullName, phone },
     });
+
     setIsSubmitting(false);
 
-    if (updateError) {
-      setError(updateError.message ?? t("genericError"));
+    if (authError) {
+      setError(authError.message ?? t("genericError"));
       return;
     }
 

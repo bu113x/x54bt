@@ -1,16 +1,21 @@
-import { useTranslations } from "next-intl";
+import { redirect } from "next/navigation";
+import { getTranslations } from "next-intl/server";
 import ProfileCard from "@/components/dashboard/profile-card";
 import ProfileDetailsForm from "@/components/dashboard/profile-details-form";
 import ChangePasswordForm from "@/components/dashboard/change-password-form";
 import NotificationPreferences from "@/components/dashboard/notification-preferences";
 import DangerZone from "@/components/dashboard/danger-zone";
-import {
-  mockNotificationPreferences,
-  mockUserProfile,
-} from "@/lib/content/dashboard";
+import { getAccountData } from "@/lib/supabase/queries/account";
 
-const AccountPage = () => {
-  const t = useTranslations("Account");
+const AccountPage = async () => {
+  const t = await getTranslations("Account");
+  const accountData = await getAccountData();
+
+  if (!accountData) {
+    redirect("/sign-in");
+  }
+
+  const { profile, preferences } = accountData;
 
   return (
     <div className="flex flex-col gap-6">
@@ -24,10 +29,10 @@ const AccountPage = () => {
         <p className="mt-1 text-sm text-foreground-muted">{t("subheading")}</p>
       </div>
 
-      <ProfileCard profile={mockUserProfile} />
-      <ProfileDetailsForm profile={mockUserProfile} />
+      <ProfileCard profile={profile} />
+      <ProfileDetailsForm profile={profile} />
       <ChangePasswordForm />
-      <NotificationPreferences preferences={mockNotificationPreferences} />
+      <NotificationPreferences preferences={preferences} />
       <DangerZone />
     </div>
   );

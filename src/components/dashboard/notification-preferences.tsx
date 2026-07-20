@@ -4,7 +4,15 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import SettingsSection from "@/components/dashboard/settings";
 import ToggleSwitch from "@/components/dashboard/toggle-switch";
+import { supabase } from "@/lib/supabase/client";
 import type { NotificationPreferences as NotificationPreferencesType } from "@/types/investment";
+
+const columnMap: Record<keyof NotificationPreferencesType, string> = {
+  emailDeposits: "email_deposits",
+  emailProfitDistributions: "email_profit_distributions",
+  emailMarketing: "email_marketing",
+  pushPriceAlerts: "push_price_alerts",
+};
 
 const NotificationPreferences = ({
   preferences,
@@ -13,11 +21,33 @@ const NotificationPreferences = ({
 }) => {
   const t = useTranslations("Account");
   const [prefs, setPrefs] = useState(preferences);
+  const [error, setError] = useState<string | null>(null);
 
   const update =
-    (key: keyof NotificationPreferencesType) => (value: boolean) => {
-      setPrefs((prev) => ({ ...prev, [key]: value }));
-      // TODO: persist to Supabase (e.g. a `user_preferences` table) once wired up
+    (key: keyof NotificationPreferencesType) => async (value: boolean) => {
+      const previous = prefs[key];
+      setPrefs((prev) => ({ ...prev, [key]: value })); // optimistic
+      setError(null);
+
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+
+      if (!user) {
+        setPrefs((prev) => ({ ...prev, [key]: previous }));
+        setError(t("genericError"));
+        return;
+      }
+
+      const { error: updateError } = await supabase
+        .from("notification_preferences")
+        .update({ [columnMap[key]]: value })
+        .eq("user_id", user.id);
+
+      if (updateError) {
+        setPrefs((prev) => ({ ...prev, [key]: previous })); // revert
+        setError(updateError.message ?? t("genericError"));
+      }
     };
 
   return (
@@ -51,6 +81,7 @@ const NotificationPreferences = ({
           description={t("emailMarketingDescription")}
         />
       </div>
+      {error && <p className="mt-3 text-sm text-danger">{error}</p>}
     </SettingsSection>
   );
 };
