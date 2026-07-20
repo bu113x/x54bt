@@ -322,5 +322,24 @@
     "minInvestment": "Min. investment",
     "searchPlaceholder": "Search assets…",
     "noResults": "No assets match your filters."
+  },
+  "Ledger": {
+    "heading": "Ledger",
+    "subheading": "Full history of deposits, withdrawals, and position activity",
+    "transaction": "Transaction",
+    "status": "Status",
+    "asset": "Asset",
+    "amount": "Amount",
+    "allTypes": "All types",
+    "allStatuses": "All statuses",
+    "deposit": "Deposit",
+    "withdrawal": "Withdrawal",
+    "position_opened": "Position opened",
+    "position_closed": "Position closed",
+    "profit_distribution": "Profit distribution",
+    "completed": "Completed",
+    "pending": "Pending",
+    "failed": "Failed",
+    "noTransactions": "No transactions match your filters."
   }
 }

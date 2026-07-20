@@ -13,7 +13,89 @@ import type {
   Position,
   RiskTierInfo,
   ExplorableAsset,
+  LedgerTransaction,
 } from "@/types/investment";
+
+export const mockLedgerTransactions: LedgerTransaction[] = [
+  {
+    id: "txn_1",
+    type: "profit_distribution",
+    description:
+      "Profit distributed from BTC position (net of performance fee)",
+    assetSymbol: "BTC",
+    amount: 214.6,
+    status: "completed",
+    timestamp: "2026-07-18T09:20:00Z",
+    reference: "TXN-88213",
+  },
+  {
+    id: "txn_2",
+    type: "position_opened",
+    description: "Opened SOL position",
+    assetSymbol: "SOL",
+    amount: -2000,
+    status: "completed",
+    timestamp: "2026-06-20T14:05:00Z",
+    reference: "TXN-88104",
+  },
+  {
+    id: "txn_3",
+    type: "deposit",
+    description: "Deposit via bank transfer",
+    amount: 1500,
+    status: "completed",
+    timestamp: "2026-06-15T11:00:00Z",
+    reference: "TXN-87990",
+  },
+  {
+    id: "txn_4",
+    type: "withdrawal",
+    description: "Withdrawal to linked wallet",
+    amount: -500,
+    status: "completed",
+    timestamp: "2026-06-02T16:40:00Z",
+    reference: "TXN-87812",
+  },
+  {
+    id: "txn_5",
+    type: "withdrawal",
+    description: "Withdrawal request to bank account",
+    amount: -300,
+    status: "pending",
+    timestamp: "2026-07-19T08:10:00Z",
+    reference: "TXN-88240",
+  },
+  {
+    id: "txn_6",
+    type: "deposit",
+    description: "Deposit via card — declined by issuer",
+    amount: 250,
+    status: "failed",
+    timestamp: "2026-07-10T13:25:00Z",
+    reference: "TXN-88055",
+  },
+  {
+    id: "txn_7",
+    type: "position_closed",
+    description: "Closed AVAX position",
+    assetSymbol: "AVAX",
+    amount: 742.2,
+    status: "completed",
+    timestamp: "2026-05-15T10:00:00Z",
+    reference: "TXN-87540",
+  },
+  {
+    id: "txn_8",
+    type: "profit_distribution",
+    description:
+      "Profit distributed from ETH position (net of performance fee)",
+    assetSymbol: "ETH",
+    amount: 68.9,
+    status: "completed",
+    timestamp: "2026-07-01T09:15:00Z",
+    reference: "TXN-87920",
+  },
+];
 
 export const riskTiers: RiskTierInfo[] = [
   {

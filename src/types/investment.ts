@@ -66,3 +66,16 @@ export interface ExplorableAsset {
   minInvestment: number;
   sparkline: number[];
 }
+
+export type TransactionStatus = "completed" | "pending" | "failed";
+
+export interface LedgerTransaction {
+  id: string;
+  type: ActivityType;
+  description: string;
+  assetSymbol?: string;
+  amount: number;
+  status: TransactionStatus;
+  timestamp: string; // ISO
+  reference: string;
+}

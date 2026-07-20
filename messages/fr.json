@@ -322,5 +322,24 @@
     "minInvestment": "Investissement min.",
     "searchPlaceholder": "Rechercher des actifs…",
     "noResults": "Aucun actif ne correspond à vos filtres."
+  },
+  "Ledger": {
+    "heading": "Registre",
+    "subheading": "Historique complet des dépôts, retraits et activités de position",
+    "transaction": "Transaction",
+    "status": "Statut",
+    "asset": "Actif",
+    "amount": "Montant",
+    "allTypes": "Tous les types",
+    "allStatuses": "Tous les statuts",
+    "deposit": "Dépôt",
+    "withdrawal": "Retrait",
+    "position_opened": "Position ouverte",
+    "position_closed": "Position clôturée",
+    "profit_distribution": "Distribution de bénéfice",
+    "completed": "Terminé",
+    "pending": "En attente",
+    "failed": "Échoué",
+    "noTransactions": "Aucune transaction ne correspond à vos filtres."
   }
 }
