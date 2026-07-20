@@ -379,5 +379,10 @@
     "deleteAccountConfirm": "This will permanently delete your account and all associated data. This action cannot be undone.",
     "confirmDelete": "Yes, delete my account",
     "cancel": "Cancel"
+  },
+  "Support": {
+    "heading": "Support",
+    "subheading": "Get help or find answers to common questions",
+    "faqHeading": "Frequently Asked Questions"
   }
 }

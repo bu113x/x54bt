@@ -13,7 +13,7 @@ import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 import { Link, useRouter } from "@/i18n/navigation";
 import Logo from "@/components/ui/logo";
-import { createClient } from "@/lib/supabase/client";
+import { supabase } from "@/lib/supabase/client";
 import useSession from "@/hooks/use-session";
 
 const navItems = [
@@ -32,7 +32,6 @@ const Sidebar = () => {
   const { data: session } = useSession();
 
   const handleSignOut = async () => {
-    const supabase = createClient();
     await supabase.auth.signOut();
     router.push("/signin");
     router.refresh();

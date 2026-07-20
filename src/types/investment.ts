@@ -96,3 +96,17 @@ export interface NotificationPreferences {
   emailMarketing: boolean;
   pushPriceAlerts: boolean;
 }
+
+export interface FaqItem {
+  id: string;
+  question: string;
+  answer: string;
+}
+
+export interface SupportChannel {
+  id: string;
+  type: "chat" | "email" | "phone";
+  label: string;
+  value: string;
+  availability: string;
+}

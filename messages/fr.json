@@ -379,5 +379,10 @@
     "deleteAccountConfirm": "Cela supprimera définitivement votre compte et toutes les données associées. Cette action est irréversible.",
     "confirmDelete": "Oui, supprimer mon compte",
     "cancel": "Annuler"
+  },
+  "Support": {
+    "heading": "Assistance",
+    "subheading": "Obtenez de l'aide ou trouvez des réponses aux questions courantes",
+    "faqHeading": "Questions fréquemment posées"
   }
 }
