@@ -8,10 +8,12 @@ import AuthCard from "@/components/auth/auth-card";
 import FormField from "@/components/auth/form-field";
 import PasswordField from "@/components/auth/password-field";
 import { createClient } from "@/lib/supabase/client";
+import { useSearchParams } from "next/dist/client/components/navigation";
 
 const SignIn = () => {
   const t = useTranslations("SignIn");
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -36,7 +38,8 @@ const SignIn = () => {
       return;
     }
 
-    router.push("/overview");
+    const redirectTo = searchParams.get("redirectTo") ?? "/overview";
+    router.push(redirectTo);
     router.refresh();
   };
 

@@ -46,7 +46,6 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
           </div>
         </div>
 
-        {/* Stats footer */}
         <div className="relative z-10 grid grid-cols-3 gap-6 border-t border-border pt-6">
           {stats.map((stat) => (
             <div key={stat.label}>

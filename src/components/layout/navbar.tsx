@@ -1,11 +1,16 @@
+"use client";
+
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
 import LanguageSwitcher from "@/components/layout/language-switcher";
+import UserMenu from "@/components/layout/user-menu";
 import Logo from "../ui/logo";
+import useSession from "@/hooks/use-session";
 
 const Navbar = () => {
   const t = useTranslations("Navbar");
+  const { data: session, isPending } = useSession();
 
   const navLinks = [
     { href: "/assets", label: t("assets") },
@@ -13,6 +18,8 @@ const Navbar = () => {
     { href: "/testimonials", label: t("testimonials") },
     { href: "/how-it-works", label: t("howItWorks") },
   ];
+
+  const isLoggedIn = !isPending && !!session?.user;
 
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur">
@@ -33,17 +40,26 @@ const Navbar = () => {
 
         <div className="flex items-center gap-3">
           <LanguageSwitcher />
-          <Link
-            href="/sign-in"
-            className="hidden text-sm text-foreground-muted transition-colors hover:text-foreground sm:block"
-          >
-            {t("signIn")}
-          </Link>
-          <Link href="/sign-up">
-            <Button size="sm" className="cursor-pointer">
-              {t("getStarted")}
-            </Button>
-          </Link>
+
+          {isPending ? (
+            <div className="h-8 w-8 animate-pulse rounded-full bg-surface-elevated" />
+          ) : isLoggedIn ? (
+            <UserMenu />
+          ) : (
+            <>
+              <Link
+                href="/sign-in"
+                className="hidden text-sm text-foreground-muted transition-colors hover:text-foreground sm:block"
+              >
+                {t("signIn")}
+              </Link>
+              <Link href="/sign-up">
+                <Button size="sm" className="cursor-pointer">
+                  {t("getStarted")}
+                </Button>
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </header>

@@ -1,5 +1,7 @@
 {
   "Navbar": {
+    "dashboard": "Tableau de bord",
+    "signOut": "Déconnexion",
     "assets": "Marchés",
     "advantages": "Avantages",
     "finance": "À propos",

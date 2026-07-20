@@ -1,5 +1,7 @@
 {
   "Navbar": {
+    "dashboard": "Dashboard",
+    "signOut": "Sign out",
     "assets": "Assets",
     "advantages": "Advantages",
     "finance": "Finance",

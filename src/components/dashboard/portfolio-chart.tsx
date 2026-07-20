@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocale } from "next-intl";
 import {
   Area,
   AreaChart,
@@ -8,31 +9,39 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+import { formatDate } from "@/lib/content/format";
 import type { PortfolioHistoryPoint } from "@/types/investment";
 
 const formatCurrency = (value: number) =>
   `$${value.toLocaleString(undefined, { maximumFractionDigits: 0 })}`;
 
-const formatMonth = (dateStr: string) =>
-  new Date(dateStr).toLocaleDateString(undefined, { month: "short" });
+const formatMonth = (dateStr: string, locale: string) =>
+  new Date(dateStr).toLocaleDateString(locale, { month: "short" });
 
 const CustomTooltip = ({
   active,
   payload,
+  locale,
 }: {
   active?: boolean;
-  payload?: { value: number }[];
+  payload?: { value: number; payload: { date: string } }[];
+  locale: string;
 }) => {
   if (!active || !payload?.length) return null;
 
   return (
     <div className="rounded-lg border border-border bg-surface-elevated px-3 py-2 text-xs shadow-lg">
       <p className="font-medium">{formatCurrency(payload[0].value)}</p>
+      <p className="mt-0.5 text-foreground-muted">
+        {formatDate(payload[0].payload.date, locale)}
+      </p>
     </div>
   );
 };
 
 const PortfolioChart = ({ data }: { data: PortfolioHistoryPoint[] }) => {
+  const locale = useLocale();
+
   return (
     <div className="h-64 w-full">
       <ResponsiveContainer width="100%" height="100%">
@@ -56,13 +65,14 @@ const PortfolioChart = ({ data }: { data: PortfolioHistoryPoint[] }) => {
           </defs>
           <XAxis
             dataKey="date"
-            tickFormatter={formatMonth}
+            tickFormatter={(d) => formatMonth(d, locale)}
             axisLine={false}
             tickLine={false}
-            tick={{ fill: "var(--gold-500)", fontSize: 11 }}
+            tick={{ fill: "var(--color-fg-muted)", fontSize: 11 }}
+            minTickGap={40}
           />
           <YAxis hide domain={["dataMin - 500", "dataMax + 500"]} />
-          <Tooltip content={<CustomTooltip />} />
+          <Tooltip content={<CustomTooltip locale={locale} />} />
           <Area
             type="monotone"
             dataKey="value"
