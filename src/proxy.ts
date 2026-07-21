@@ -5,8 +5,6 @@ import { routing } from "./i18n/routing";
 
 const intlMiddleware = createIntlMiddleware(routing);
 
-// Folder names under src/app/[locale]/(dashboard) and (auth) — keep this
-// list in sync if you add/rename route segments.
 const PROTECTED_SEGMENTS = [
   "overview",
   "explore",

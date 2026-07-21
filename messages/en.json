@@ -286,7 +286,8 @@
     "performanceFeePaid": "Performance Fee Paid",
     "performanceFeeNote": "our share of realized profit",
     "portfolioPerformance": "Portfolio Performance",
-    "last6Months": "Last 6 months"
+    "last6Months": "Last 6 months",
+    "noHistoryYet": "No portfolio history yet — check back after your first day of activity."
   },
   "Portfolio": {
     "activePositions": "Active Positions",
@@ -303,11 +304,14 @@
     "invested": "Invested",
     "currentValue": "Current Value",
     "pnl": "P&L",
-    "noPositions": "No positions in this category yet."
+    "noPositions": "No positions in this category yet.",
+    "noActivePositions": "You don't have any active positions yet. Start investing to see your portfolio here.",
+    "noClosedPositions": "You don't have any closed positions yet. Once you close a position, it will appear here."
   },
   "Activity": {
     "recentActivity": "Recent Activity",
-    "viewLedger": "View ledger"
+    "viewLedger": "View ledger",
+    "noActivityYet": "No activity yet — check back after your first day of activity."
   },
   "RiskTiers": {
     "all": "All",

@@ -2,6 +2,7 @@ import {
   ArrowDownToLine,
   ArrowUpFromLine,
   CircleDollarSign,
+  List,
   TrendingDown,
   TrendingUp,
 } from "lucide-react";
@@ -31,32 +32,41 @@ const ActivityFeed = ({ items }: { items: ActivityItem[] }) => {
       </div>
 
       <div className="divide-y divide-border">
-        {items.map((item) => {
-          const Icon = iconMap[item.type];
-          return (
-            <div
-              key={item.id}
-              className="flex items-center justify-between px-6 py-4"
-            >
-              <div className="flex items-center gap-3">
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-surface-elevated">
-                  <Icon className="h-4 w-4 text-foreground-muted" />
-                </span>
-                <div>
-                  <p className="text-sm">{item.description}</p>
-                  <p className="text-xs text-foreground-muted">
-                    {formatDate(item.timestamp, "en-US")}
-                  </p>
-                </div>
-              </div>
-              <p
-                className={`text-sm font-medium ${item.amount >= 0 ? "text-success" : "text-foreground"}`}
+        {!!items.length ? (
+          items.map((item) => {
+            const Icon = iconMap[item.type];
+            return (
+              <div
+                key={item.id}
+                className="flex items-center justify-between px-6 py-4"
               >
-                {formatCurrency(item.amount)}
-              </p>
-            </div>
-          );
-        })}
+                <div className="flex items-center gap-3">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-surface-elevated">
+                    <Icon className="h-4 w-4 text-foreground-muted" />
+                  </span>
+                  <div>
+                    <p className="text-sm">{item.description}</p>
+                    <p className="text-xs text-foreground-muted">
+                      {formatDate(item.timestamp, "en-US")}
+                    </p>
+                  </div>
+                </div>
+                <p
+                  className={`text-sm font-medium ${item.amount >= 0 ? "text-success" : "text-foreground"}`}
+                >
+                  {formatCurrency(item.amount)}
+                </p>
+              </div>
+            );
+          })
+        ) : (
+          <div className="min-h-48 w-full flex flex-col justify-center items-center rounded gap-y-2">
+            <List className="h-12 w-12 text-foreground-muted opacity-30" />
+            <p className="text-center mt-2 text-sm text-foreground-muted opacity-30">
+              {t("noActivityYet")}
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );

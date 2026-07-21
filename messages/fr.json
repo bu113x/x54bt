@@ -272,6 +272,7 @@
     "portfolio": "Portefeuille",
     "ledger": "Registre",
     "support": "Assistance",
+
     "account": "Compte",
     "signOut": "Déconnexion"
   },
@@ -286,7 +287,8 @@
     "performanceFeePaid": "Frais de performance payés",
     "performanceFeeNote": "notre part du bénéfice réalisé",
     "portfolioPerformance": "Performance du portefeuille",
-    "last6Months": "6 derniers mois"
+    "last6Months": "6 derniers mois",
+    "noHistoryYet": "Aucun historique de portefeuille pour l'instant — revenez après votre première journée d'activité."
   },
   "Portfolio": {
     "heading": "Portefeuille",
@@ -303,11 +305,14 @@
     "invested": "Investi",
     "currentValue": "Valeur actuelle",
     "pnl": "P&L",
-    "noPositions": "Aucune position dans cette catégorie pour le moment."
+    "noPositions": "Aucune position dans cette catégorie pour le moment.",
+    "noActivePositions": "Vous n'avez pas encore de positions actives. Commencez à investir pour voir votre portefeuille ici.",
+    "noClosedPositions": "Vous n'avez pas encore de positions clôturées. Une fois que vous clôturez une position, elle apparaîtra ici."
   },
   "Activity": {
     "recentActivity": "Activité récente",
-    "viewLedger": "Voir le registre"
+    "viewLedger": "Voir le registre",
+    "noActivityYet": "Aucune activité pour le moment — revenez après votre première journée d'activité."
   },
   "RiskTiers": {
     "all": "Tous",

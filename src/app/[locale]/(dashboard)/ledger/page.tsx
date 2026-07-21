@@ -1,4 +1,3 @@
-// src/app/[locale]/(dashboard)/ledger/page.tsx
 import { getTranslations } from "next-intl/server";
 import RiskDisclosureBanner from "@/components/dashboard/risk-disclosure-banner";
 import LedgerFilters from "@/components/dashboard/ledger-filters";

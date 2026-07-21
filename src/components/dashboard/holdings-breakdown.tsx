@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import type { Position } from "@/types/investment";
+import { List } from "lucide-react";
 
 const formatCurrency = (value: number) =>
   `$${value.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
@@ -28,43 +29,52 @@ const HoldingsBreakdown = ({ positions }: { positions: Position[] }) => {
       </div>
 
       <div className="divide-y divide-border">
-        {positions.map((position) => (
-          <Link
-            key={position.id}
-            href={`/explore/${position.assetSymbol.toLowerCase()}`}
-            className="flex items-center justify-between px-6 py-4 transition-colors hover:bg-surface-elevated"
-          >
-            <div className="flex items-center gap-3">
-              <Image
-                src={position.assetLogo}
-                alt={position.assetName}
-                width={36}
-                height={36}
-                className="h-9 w-9 rounded-full"
-              />
-              <div>
-                <p className="text-sm font-medium">{position.assetSymbol}</p>
-                <span
-                  className={`mt-0.5 inline-block rounded px-1.5 py-0.5 text-[10px] uppercase tracking-wide ${riskTierStyles[position.riskTier]}`}
-                >
-                  {position.riskTier}
-                </span>
+        {!!positions.length ? (
+          positions.map((position) => (
+            <Link
+              key={position.id}
+              href={`/explore/${position.assetSymbol.toLowerCase()}`}
+              className="flex items-center justify-between px-6 py-4 transition-colors hover:bg-surface-elevated"
+            >
+              <div className="flex items-center gap-3">
+                <Image
+                  src={position.assetLogo}
+                  alt={position.assetName}
+                  width={36}
+                  height={36}
+                  className="h-9 w-9 rounded-full"
+                />
+                <div>
+                  <p className="text-sm font-medium">{position.assetSymbol}</p>
+                  <span
+                    className={`mt-0.5 inline-block rounded px-1.5 py-0.5 text-[10px] uppercase tracking-wide ${riskTierStyles[position.riskTier]}`}
+                  >
+                    {position.riskTier}
+                  </span>
+                </div>
               </div>
-            </div>
 
-            <div className="text-right">
-              <p className="text-sm font-medium">
-                {formatCurrency(position.currentValue)}
-              </p>
-              <p
-                className={`text-xs ${position.pnl >= 0 ? "text-success" : "text-danger"}`}
-              >
-                {position.pnl >= 0 ? "+" : ""}
-                {position.pnlPercent.toFixed(2)}%
-              </p>
-            </div>
-          </Link>
-        ))}
+              <div className="text-right">
+                <p className="text-sm font-medium">
+                  {formatCurrency(position.currentValue)}
+                </p>
+                <p
+                  className={`text-xs ${position.pnl >= 0 ? "text-success" : "text-danger"}`}
+                >
+                  {position.pnl >= 0 ? "+" : ""}
+                  {position.pnlPercent.toFixed(2)}%
+                </p>
+              </div>
+            </Link>
+          ))
+        ) : (
+          <div className="min-h-48 w-full flex flex-col justify-center items-center rounded gap-y-2">
+            <List className="h-12 w-12 text-foreground-muted opacity-30" />
+            <p className="text-center mt-2 text-sm text-foreground-muted opacity-30">
+              {t("noActivePositions")}
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );
