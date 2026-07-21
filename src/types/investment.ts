@@ -1,12 +1,10 @@
-import { StaticImageData } from "next/image";
-
 export type RiskTier = "conservative" | "balanced" | "aggressive";
 
 export interface Position {
   id: string;
   assetSymbol: string;
   assetName: string;
-  assetLogo: StaticImageData;
+  assetLogo: string;
   riskTier: RiskTier;
   amountInvested: number;
   currentValue: number;
@@ -57,7 +55,7 @@ export interface ExplorableAsset {
   id: string;
   symbol: string;
   name: string;
-  logo: StaticImageData;
+  logo: string;
   price: number;
   changePercent24h: number;
   riskTier: RiskTier;
@@ -115,7 +113,7 @@ export interface AssetDetail {
   id: string;
   symbol: string;
   name: string;
-  logo: StaticImageData;
+  logo: string;
   price: number;
   changePercent24h: number;
   riskTier: RiskTier;

@@ -1,31 +1,31 @@
-"use client";
-
-import { useState } from "react";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { Wallet, TrendingUp, Layers } from "lucide-react";
 import RiskDisclosureBanner from "@/components/dashboard/risk-disclosure-banner";
 import StatCard from "@/components/dashboard/stat-card";
 import AllocationBar from "@/components/dashboard/allocation-bar";
-import TabGroup from "@/components/dashboard/tab-group";
 import PositionsTable from "@/components/dashboard/positions-table";
 import {
-  mockClosedPositions,
-  mockPortfolioSummary,
-  mockPositions,
-} from "@/lib/content/dashboard";
+  getAllPositions,
+  getPortfolioSummary,
+} from "@/lib/supabase/queries/portfolio";
+import PortfolioTabs from "@/components/dashboard/portfolio-tabs";
+import { formatCurrency } from "@/lib/content/format";
 
-const formatCurrency = (value: number) =>
-  `$${value.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+interface PortfolioPageProps {
+  searchParams: Promise<{ tab?: string }>;
+}
 
-type Tab = "active" | "closed";
+const PortfolioPage = async ({ searchParams }: PortfolioPageProps) => {
+  const t = await getTranslations("Portfolio");
+  const params = await searchParams;
+  const activeTab = params.tab === "closed" ? "closed" : "active";
 
-const PortfolioPage = () => {
-  const t = useTranslations("Portfolio");
-  const [tab, setTab] = useState<Tab>("active");
+  const allPositions = await getAllPositions();
+  const summary = await getPortfolioSummary(allPositions);
 
-  const summary = mockPortfolioSummary;
-  const positionsToShow =
-    tab === "active" ? mockPositions : mockClosedPositions;
+  const activeCount = allPositions.filter((p) => p.status === "active").length;
+  const closedCount = allPositions.filter((p) => p.status === "closed").length;
+  const positionsToShow = allPositions.filter((p) => p.status === activeTab);
 
   return (
     <div className="flex flex-col gap-6">
@@ -45,12 +45,12 @@ const PortfolioPage = () => {
         <StatCard
           icon={Wallet}
           label={t("totalValue")}
-          value={formatCurrency(summary.totalValue)}
+          value={formatCurrency(summary.totalValue, false)}
         />
         <StatCard
           icon={TrendingUp}
           label={t("netProfit")}
-          value={formatCurrency(summary.totalProfit)}
+          value={formatCurrency(summary.totalProfit, false)}
           sublabel={t("afterFees")}
         />
         <StatCard
@@ -60,30 +60,17 @@ const PortfolioPage = () => {
         />
       </div>
 
-      <AllocationBar positions={mockPositions} />
+      <AllocationBar
+        positions={allPositions.filter((p) => p.status === "active")}
+      />
 
-      <div>
-        <TabGroup<Tab>
-          tabs={[
-            {
-              value: "active",
-              label: t("active"),
-              count: mockPositions.length,
-            },
-            {
-              value: "closed",
-              label: t("closed"),
-              count: mockClosedPositions.length,
-            },
-          ]}
-          active={tab}
-          onChange={setTab}
-        />
+      <PortfolioTabs
+        activeTab={activeTab}
+        activeCount={activeCount}
+        closedCount={closedCount}
+      />
 
-        <div className="mt-4">
-          <PositionsTable positions={positionsToShow} />
-        </div>
-      </div>
+      <PositionsTable positions={positionsToShow} />
     </div>
   );
 };

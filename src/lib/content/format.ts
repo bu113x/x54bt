@@ -11,7 +11,11 @@ export const formatDate = (iso: string, locale: string) =>
     year: "numeric",
   });
 
-export const formatCurrency = (value: number) => {
+export const formatCurrency = (value: number, addSign: boolean = true) => {
   const sign = value >= 0 ? "+" : "-";
-  return `${sign}$${Math.abs(value).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+  const formattedValue = Math.abs(value).toLocaleString(undefined, {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
+  return addSign ? `${sign}$${formattedValue}` : `$${formattedValue}`;
 };
