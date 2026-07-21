@@ -395,7 +395,8 @@
     "performanceFee": "Performance Fee",
     "minInvestment": "Min. Investment",
     "about": "About",
-    "strategy": "Strategy"
+    "strategy": "Strategy",
+    "priceDataUnavailable": "Live price data isn't connected yet."
   },
   "Invest": {
     "title": {

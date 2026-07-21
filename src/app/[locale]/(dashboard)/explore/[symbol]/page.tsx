@@ -1,45 +1,42 @@
-"use client";
-
-import { useState } from "react";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { useTranslations } from "next-intl";
-import { use } from "react";
-import { Button } from "@/components/ui/button";
+import { getTranslations } from "next-intl/server";
 import RiskDisclosureBanner from "@/components/dashboard/risk-disclosure-banner";
 import AssetPriceChart from "@/components/dashboard/asset-price-chart";
 import AssetStatsGrid from "@/components/dashboard/asset-stats-grid";
-import InvestModal from "@/components/dashboard/invest-modal";
-import { mockAssetDetails } from "@/lib/content/dashboard";
+import AssetDetailActions from "@/components/dashboard/asset-detail-actions";
+import { getAssetBySymbol } from "@/lib/supabase/queries/asset";
 
 const formatPrice = (value: number) =>
   `$${value.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 
-const AssetDetailPage = ({
+const AssetDetailPage = async ({
   params,
 }: {
   params: Promise<{ symbol: string }>;
 }) => {
-  const { symbol } = use(params);
-  const t = useTranslations("AssetDetail");
-  const [modalOpen, setModalOpen] = useState(false);
+  const { symbol } = await params;
+  const t = await getTranslations("AssetDetail");
+  const asset = await getAssetBySymbol(symbol);
 
-  const asset = mockAssetDetails[symbol.toLowerCase()];
   if (!asset) notFound();
 
   const positive = asset.changePercent24h >= 0;
+  const hasChartData = asset.priceHistory.length > 0;
 
   return (
     <div className="flex flex-col gap-6">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-3">
-          <Image
-            src={asset.logo}
-            alt={asset.name}
-            width={48}
-            height={48}
-            className="h-12 w-12 rounded-full"
-          />
+          {asset.logo && (
+            <Image
+              src={asset.logo}
+              alt={asset.name}
+              width={48}
+              height={48}
+              className="h-12 w-12 rounded-full"
+            />
+          )}
           <div>
             <h1
               className="text-2xl font-bold"
@@ -51,29 +48,37 @@ const AssetDetailPage = ({
           </div>
         </div>
 
-        <Button onClick={() => setModalOpen(true)} className="cursor-pointer">
-          {t("investNow")}
-        </Button>
+        <AssetDetailActions asset={asset} />
       </div>
 
       <RiskDisclosureBanner compact />
 
       <div className="rounded-card border border-border bg-surface p-6">
-        <div className="flex items-baseline gap-3">
-          <p
-            className="text-3xl font-bold"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
-            {formatPrice(asset.price)}
+        {hasChartData ? (
+          <>
+            <div className="flex items-baseline gap-3">
+              <p
+                className="text-3xl font-bold"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                {formatPrice(asset.price)}
+              </p>
+              <p
+                className={`text-sm ${positive ? "text-success" : "text-danger"}`}
+              >
+                {positive ? "+" : ""}
+                {asset.changePercent24h.toFixed(2)}% · {t("24h")}
+              </p>
+            </div>
+            <div className="mt-4">
+              <AssetPriceChart data={asset.priceHistory} />
+            </div>
+          </>
+        ) : (
+          <p className="text-center text-sm text-foreground-muted">
+            {t("priceDataUnavailable")}
           </p>
-          <p className={`text-sm ${positive ? "text-success" : "text-danger"}`}>
-            {positive ? "+" : ""}
-            {asset.changePercent24h.toFixed(2)}% · {t("24h")}
-          </p>
-        </div>
-        <div className="mt-4">
-          <AssetPriceChart data={asset.priceHistory} />
-        </div>
+        )}
       </div>
 
       <AssetStatsGrid asset={asset} />
@@ -89,12 +94,6 @@ const AssetDetailPage = ({
           {asset.strategyDescription}
         </p>
       </div>
-
-      <InvestModal
-        open={modalOpen}
-        onClose={() => setModalOpen(false)}
-        asset={asset}
-      />
     </div>
   );
 };

@@ -395,7 +395,8 @@
     "performanceFee": "Frais de performance",
     "minInvestment": "Investissement min.",
     "about": "À propos",
-    "strategy": "Stratégie"
+    "strategy": "Stratégie",
+    "priceDataUnavailable": "Les données de prix en direct ne sont pas encore connectées."
   },
   "Invest": {
     "title": {
