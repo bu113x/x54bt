@@ -1,6 +1,8 @@
+// components/dashboard/ledger-filters.tsx
 "use client";
 
 import { useTranslations } from "next-intl";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import type { ActivityType, TransactionStatus } from "@/types/investment";
 
 const types: ActivityType[] = [
@@ -15,24 +17,33 @@ const statuses: TransactionStatus[] = ["completed", "pending", "failed"];
 
 interface LedgerFiltersProps {
   typeFilter: ActivityType | "all";
-  onTypeChange: (value: ActivityType | "all") => void;
   statusFilter: TransactionStatus | "all";
-  onStatusChange: (value: TransactionStatus | "all") => void;
 }
 
-const LedgerFilters = ({
-  typeFilter,
-  onTypeChange,
-  statusFilter,
-  onStatusChange,
-}: LedgerFiltersProps) => {
+const LedgerFilters = ({ typeFilter, statusFilter }: LedgerFiltersProps) => {
   const t = useTranslations("Ledger");
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  const updateParam = (key: "type" | "status", value: string) => {
+    const params = new URLSearchParams(searchParams.toString());
+
+    if (value === "all") {
+      params.delete(key);
+    } else {
+      params.set(key, value);
+    }
+
+    const query = params.toString();
+    router.push(`${pathname}${query ? `?${query}` : ""}`);
+  };
 
   return (
     <div className="flex flex-wrap gap-3">
       <select
         value={typeFilter}
-        onChange={(e) => onTypeChange(e.target.value as ActivityType | "all")}
+        onChange={(e) => updateParam("type", e.target.value)}
         className="rounded-lg border border-border bg-surface px-3 py-2 text-sm outline-none focus:border-primary cursor-pointer"
       >
         <option value="all">{t("allTypes")}</option>
@@ -45,9 +56,7 @@ const LedgerFilters = ({
 
       <select
         value={statusFilter}
-        onChange={(e) =>
-          onStatusChange(e.target.value as TransactionStatus | "all")
-        }
+        onChange={(e) => updateParam("status", e.target.value)}
         className="rounded-lg border border-border bg-surface px-3 py-2 text-sm outline-none focus:border-primary cursor-pointer"
       >
         <option value="all">{t("allStatuses")}</option>

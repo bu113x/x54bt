@@ -1,28 +1,26 @@
-"use client";
-
-import { useMemo, useState } from "react";
-import { useTranslations } from "next-intl";
+// src/app/[locale]/(dashboard)/ledger/page.tsx
+import { getTranslations } from "next-intl/server";
 import RiskDisclosureBanner from "@/components/dashboard/risk-disclosure-banner";
-import LedgerTable from "@/components/dashboard/ledger-table";
-import { mockLedgerTransactions } from "@/lib/content/dashboard";
-import type { ActivityType, TransactionStatus } from "@/types/investment";
 import LedgerFilters from "@/components/dashboard/ledger-filters";
+import LedgerTable from "@/components/dashboard/ledger-table";
+import { getLedgerTransactions } from "@/lib/supabase/queries/ledger";
+import type { ActivityType, TransactionStatus } from "@/types/investment";
 
-const LedgerPage = () => {
-  const t = useTranslations("Ledger");
-  const [typeFilter, setTypeFilter] = useState<ActivityType | "all">("all");
-  const [statusFilter, setStatusFilter] = useState<TransactionStatus | "all">(
-    "all",
-  );
+interface LedgerPageProps {
+  searchParams: Promise<{ type?: string; status?: string }>;
+}
 
-  const filteredTransactions = useMemo(() => {
-    return mockLedgerTransactions.filter((txn) => {
-      const matchesType = typeFilter === "all" || txn.type === typeFilter;
-      const matchesStatus =
-        statusFilter === "all" || txn.status === statusFilter;
-      return matchesType && matchesStatus;
-    });
-  }, [typeFilter, statusFilter]);
+const LedgerPage = async ({ searchParams }: LedgerPageProps) => {
+  const t = await getTranslations("Ledger");
+  const params = await searchParams;
+
+  const typeFilter = params.type as ActivityType | undefined;
+  const statusFilter = params.status as TransactionStatus | undefined;
+
+  const transactions = await getLedgerTransactions({
+    type: typeFilter,
+    status: statusFilter,
+  });
 
   return (
     <div className="flex flex-col gap-6">
@@ -39,13 +37,11 @@ const LedgerPage = () => {
       <RiskDisclosureBanner compact />
 
       <LedgerFilters
-        typeFilter={typeFilter}
-        onTypeChange={setTypeFilter}
-        statusFilter={statusFilter}
-        onStatusChange={setStatusFilter}
+        typeFilter={typeFilter ?? "all"}
+        statusFilter={statusFilter ?? "all"}
       />
 
-      <LedgerTable transactions={filteredTransactions} />
+      <LedgerTable transactions={transactions} />
     </div>
   );
 };
