@@ -1,6 +1,7 @@
 "use client";
 
 import { LogOut } from "lucide-react";
+import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 import { Link, useRouter } from "@/i18n/navigation";
@@ -12,6 +13,7 @@ import { navItems } from "@/lib/content/nav-items";
 const Sidebar = () => {
   const t = useTranslations("Sidebar");
   const pathname = usePathname();
+  const pathnameWithoutLocale = pathname.slice(3);
   const router = useRouter();
   const { data: session } = useSession();
 
@@ -33,21 +35,29 @@ const Sidebar = () => {
       <nav className="flex-1 space-y-1 px-3">
         {navItems.map((item) => {
           const isActive =
-            pathname === item.href || pathname.startsWith(`${item.href}/`);
+            pathnameWithoutLocale === item.href ||
+            pathnameWithoutLocale.startsWith(`/${item.href}/`);
           const Icon = item.icon;
 
           return (
             <Link
               key={item.href}
               href={item.href}
-              className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-colors ${
+              className={`relative flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-colors ${
                 isActive
-                  ? "bg-primary/10 font-medium text-primary"
+                  ? "font-medium text-primary"
                   : "text-foreground-muted hover:bg-surface-elevated hover:text-foreground"
               }`}
             >
-              <Icon className="h-4 w-4" />
-              {t(item.labelKey)}
+              {isActive && (
+                <motion.span
+                  layoutId="sidebar-active-indicator"
+                  className="absolute inset-0 rounded-lg bg-primary/10"
+                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                />
+              )}
+              <Icon className="relative z-10 h-4 w-4" />
+              <span className="relative z-10">{t(item.labelKey)}</span>
             </Link>
           );
         })}
