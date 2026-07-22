@@ -32,7 +32,7 @@ const AuthCard = ({
         <p className="mt-2 text-sm text-foreground-muted">{subtitle}</p>
       )}
 
-      <div className="mt-8">{children}</div>
+      <div className="md: mt-8">{children}</div>
 
       {footer && <div className="mt-6 text-center text-sm">{footer}</div>}
     </div>

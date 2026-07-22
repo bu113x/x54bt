@@ -8,7 +8,10 @@
     "testimonials": "Témoignages",
     "howItWorks": "Comment ça marche",
     "signIn": "Se connecter",
-    "getStarted": "Commencer"
+    "getStarted": "Commencer",
+    "language": "Langue",
+    "closeMenu": "Fermer le menu",
+    "openMenu": "Ouvrir le menu"
   },
   "Footer": {
     "description": "Achetez, conservez et d\u00e9veloppez votre portefeuille crypto.",

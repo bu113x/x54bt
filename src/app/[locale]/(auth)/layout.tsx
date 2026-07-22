@@ -1,6 +1,4 @@
 import React from "react";
-import Image from "next/image";
-import { Link } from "@/i18n/navigation";
 import Logo from "@/components/ui/logo";
 
 const stats = [
@@ -11,7 +9,7 @@ const stats = [
 
 const AuthLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="flex min-h-screen bg-background">
+    <div className="flex h-screen max-h-screen w-screen max-w-screen bg-background">
       <div className="relative hidden w-1/2 overflow-hidden bg-surface lg:flex lg:flex-col lg:justify-between lg:p-12">
         <div
           className="pointer-events-none absolute inset-0 opacity-40"

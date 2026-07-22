@@ -37,25 +37,50 @@ const UserMenu = () => {
   };
 
   return (
-    <div ref={menuRef} className="relative">
-      <button
-        onClick={() => setOpen((prev) => !prev)}
-        className="flex items-center gap-2 rounded-lg border border-border px-2.5 py-1.5 transition-colors hover:bg-surface-elevated cursor-pointer"
-      >
-        <span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary/15 text-xs font-medium text-primary">
-          {initial}
-        </span>
-        <ChevronDown
-          className={`h-3.5 w-3.5 text-foreground-muted transition-transform ${open ? "rotate-180" : ""}`}
-        />
-      </button>
+    <>
+      <div ref={menuRef} className="relative hidden md:block">
+        <button
+          onClick={() => setOpen((prev) => !prev)}
+          className="flex items-center gap-2 rounded-lg border border-border px-2.5 py-1.5 transition-colors hover:bg-surface-elevated cursor-pointer"
+        >
+          <span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary/15 text-xs font-medium text-primary">
+            {initial}
+          </span>
+          <ChevronDown
+            className={`h-3.5 w-3.5 text-foreground-muted transition-transform ${open ? "rotate-180" : ""}`}
+          />
+        </button>
 
-      {open && (
-        <div className="absolute right-0 mt-2 w-56 rounded-card border border-border bg-surface p-1.5 shadow-xl">
-          <div className="px-3 py-2">
-            <p className="truncate text-sm font-medium">{email}</p>
+        {open && (
+          <div className="absolute right-0 mt-2 w-56 rounded-card border border-border bg-surface p-1.5 shadow-xl">
+            <div className="px-3 py-2">
+              <p className="truncate text-sm font-medium">{email}</p>
+            </div>
+            <div className="my-1 h-px bg-border" />
+            <Link
+              href="/overview"
+              onClick={() => setOpen(false)}
+              className="flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm text-foreground-muted transition-colors hover:bg-surface-elevated hover:text-foreground"
+            >
+              <LayoutDashboard className="h-4 w-4" />
+              {t("dashboard")}
+            </Link>
+            <button
+              onClick={handleSignOut}
+              className="flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-sm text-foreground-muted transition-colors hover:bg-surface-elevated hover:text-danger cursor-pointer"
+            >
+              <LogOut className="h-4 w-4" />
+              {t("signOut")}
+            </button>
           </div>
-          <div className="my-1 h-px bg-border" />
+        )}
+      </div>
+
+      <div className="md:hidden flex flex-col items-center gap-2 rounded-lg border border-border px-2.5 py-1.5 transition-colors cursor-pointer">
+        <div className="flex items-center justify-around space-x-2 w-full">
+          <span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary/15 text-xs font-medium text-primary">
+            {initial}
+          </span>
           <Link
             href="/overview"
             onClick={() => setOpen(false)}
@@ -66,14 +91,14 @@ const UserMenu = () => {
           </Link>
           <button
             onClick={handleSignOut}
-            className="flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-sm text-foreground-muted transition-colors hover:bg-surface-elevated hover:text-danger cursor-pointer"
+            className="flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm text-foreground-muted transition-colors hover:bg-surface-elevated hover:text-danger cursor-pointer"
           >
             <LogOut className="h-4 w-4" />
             {t("signOut")}
           </button>
         </div>
-      )}
-    </div>
+      </div>
+    </>
   );
 };
 

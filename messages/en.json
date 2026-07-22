@@ -8,7 +8,10 @@
     "testimonials": "Testimonials",
     "howItWorks": "How It Works",
     "signIn": "Sign In",
-    "getStarted": "Get Started"
+    "getStarted": "Get Started",
+    "language": "Language",
+    "closeMenu": "Close menu",
+    "openMenu": "Open menu"
   },
   "Footer": {
     "description": "Buy, hold, and grow your crypto portfolio.",

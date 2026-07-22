@@ -41,7 +41,7 @@ const Sidebar = () => {
   const initial = email.charAt(0).toUpperCase() || "?";
 
   return (
-    <aside className="flex h-screen w-64 shrink-0 flex-col border-r border-border bg-surface">
+    <aside className="hidden md:flex h-screen w-64 shrink-0 flex-col border-r border-border bg-surface">
       <div className="px-6 py-6">
         <Logo />
       </div>
