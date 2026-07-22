@@ -1,12 +1,23 @@
 import React from "react";
 import Sidebar from "@/components/dashboard/sidebar";
+import MobileTopBar from "@/components/dashboard/mobile-top-bar";
+import MobileTabBar from "@/components/dashboard/mobile-tab-bar";
 import SmartsuppWidget from "@/components/support/smartsupp-widget";
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="flex h-screen bg-background">
       <Sidebar />
-      <main className="flex-1 overflow-y-auto px-8 py-8">{children}</main>
+
+      <div className="flex flex-1 flex-col overflow-hidden">
+        <MobileTopBar />
+
+        <main className="flex-1 overflow-y-auto px-4 py-6 pb-28 md:px-8 md:py-8 md:pb-8">
+          {children}
+        </main>
+      </div>
+
+      <MobileTabBar />
       <SmartsuppWidget />
     </div>
   );

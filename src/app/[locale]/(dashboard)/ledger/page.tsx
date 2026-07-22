@@ -33,8 +33,6 @@ const LedgerPage = async ({ searchParams }: LedgerPageProps) => {
         <p className="mt-1 text-sm text-foreground-muted">{t("subheading")}</p>
       </div>
 
-      <RiskDisclosureBanner compact />
-
       <LedgerFilters
         typeFilter={typeFilter ?? "all"}
         statusFilter={statusFilter ?? "all"}

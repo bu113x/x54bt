@@ -1,29 +1,13 @@
 "use client";
 
-import {
-  Compass,
-  LayoutDashboard,
-  LifeBuoy,
-  LogOut,
-  Receipt,
-  Settings,
-  Wallet,
-} from "lucide-react";
+import { LogOut } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 import { Link, useRouter } from "@/i18n/navigation";
 import Logo from "@/components/ui/logo";
 import { supabase } from "@/lib/supabase/client";
 import useSession from "@/hooks/use-session";
-
-const navItems = [
-  { href: "/overview", labelKey: "overview", icon: LayoutDashboard },
-  { href: "/explore", labelKey: "explore", icon: Compass },
-  { href: "/portfolio", labelKey: "portfolio", icon: Wallet },
-  { href: "/ledger", labelKey: "ledger", icon: Receipt },
-  { href: "/support", labelKey: "support", icon: LifeBuoy },
-  { href: "/account", labelKey: "account", icon: Settings },
-] as const;
+import { navItems } from "@/lib/content/nav-items";
 
 const Sidebar = () => {
   const t = useTranslations("Sidebar");

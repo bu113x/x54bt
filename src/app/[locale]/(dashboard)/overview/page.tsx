@@ -45,8 +45,6 @@ const OverviewPage = async () => {
         <p className="mt-1 text-sm text-foreground-muted">{t("subheading")}</p>
       </div>
 
-      <RiskDisclosureBanner />
-
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <StatCard
           icon={Wallet}

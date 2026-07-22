@@ -19,8 +19,6 @@ const ExplorePage = async () => {
         <p className="mt-1 text-sm text-foreground-muted">{t("subheading")}</p>
       </div>
 
-      <RiskDisclosureBanner compact />
-
       <ExplorePageClient assets={assets} />
     </div>
   );

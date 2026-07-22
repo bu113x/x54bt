@@ -51,8 +51,6 @@ const AssetDetailPage = async ({
         <AssetDetailActions asset={asset} />
       </div>
 
-      <RiskDisclosureBanner compact />
-
       <div className="rounded-card border border-border bg-surface p-6">
         {hasChartData ? (
           <>

@@ -39,8 +39,6 @@ const PortfolioPage = async ({ searchParams }: PortfolioPageProps) => {
         <p className="mt-1 text-sm text-foreground-muted">{t("subheading")}</p>
       </div>
 
-      <RiskDisclosureBanner compact />
-
       <div className="grid gap-4 sm:grid-cols-3">
         <StatCard
           icon={Wallet}
