@@ -78,9 +78,9 @@ const Hero = () => {
               {t("startInvesting")}
             </Button>
           </Link>
-          <Link href="/markets">
+          <Link href="/assets">
             <Button variant="secondary" size="lg" className="cursor-pointer">
-              {t("viewMarkets")}
+              {t("viewAssets")}
             </Button>
           </Link>
         </div>
