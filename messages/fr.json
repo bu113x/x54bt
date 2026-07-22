@@ -408,7 +408,9 @@
       "amount": "Investir dans {symbol}",
       "confirm": "Confirmer l'investissement",
       "success": "Investissement effectué",
-      "error": "Une erreur s'est produite"
+      "error": "Une erreur s'est produite",
+      "currency": "Choisir la devise",
+      "deposit": "Dépôt"
     },
     "amountLabel": "Montant à investir",
     "minMax": "Min {min} · Max {max}",
@@ -434,6 +436,21 @@
       "conservative": "Prudent",
       "balanced": "Équilibré",
       "aggressive": "Agressif"
+    },
+    "chooseCurrencyBody": "Sélectionnez la cryptomonnaie avec laquelle vous souhaitez payer.",
+    "sendExactly": "Envoyez exactement",
+    "depositAddress": "Adresse de dépôt",
+    "depositRiskNote": "Envoyez uniquement le montant exact indiqué, en utilisant la cryptomonnaie sélectionnée. L'envoi d'un autre actif ou d'un montant différent peut entraîner une perte de fonds.",
+    "depositStatus": {
+      "waiting": "En attente de la réception de votre paiement…",
+      "confirming": "Paiement détecté — en attente des confirmations de la blockchain…",
+      "confirmed": "Paiement confirmé !",
+      "sending": "Traitement de votre paiement…",
+      "partially_paid": "Paiement partiel reçu — veuillez contacter le support.",
+      "finished": "Paiement terminé.",
+      "failed": "Le paiement a échoué. Veuillez réessayer ou contacter le support.",
+      "refunded": "Le paiement a été remboursé.",
+      "expired": "Le délai de paiement a expiré. Veuillez commencer un nouveau dépôt."
     }
   }
 }

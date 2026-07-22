@@ -10,10 +10,6 @@ export interface CreateInvestmentResult {
   error?: string;
 }
 
-// Wraps the actual write so the modal doesn't need to know table/RPC details.
-// Backed by a Postgres function (`create_investment_position`) rather than a
-// raw insert, so amount/balance validation happens server-side under
-// SECURITY DEFINER — never trust the client-submitted amount alone.
 export const createInvestment = async ({
   assetSymbol,
   amount,

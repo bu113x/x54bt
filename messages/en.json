@@ -405,7 +405,8 @@
   "Invest": {
     "title": {
       "amount": "Invest in {symbol}",
-      "confirm": "Confirm Investment",
+      "currency": "Choose payment currency",
+      "deposit": "Send payment",
       "success": "Investment Placed",
       "error": "Something Went Wrong"
     },
@@ -433,6 +434,21 @@
       "conservative": "Conservative",
       "balanced": "Balanced",
       "aggressive": "Aggressive"
+    },
+    "chooseCurrencyBody": "Select the cryptocurrency you'd like to pay with.",
+    "sendExactly": "Send exactly",
+    "depositAddress": "Deposit address",
+    "depositRiskNote": "Only send the exact amount shown, using the currency selected. Sending a different asset or amount may result in loss of funds.",
+    "depositStatus": {
+      "waiting": "Waiting for your payment to arrive…",
+      "confirming": "Payment detected — waiting for blockchain confirmations…",
+      "confirmed": "Payment confirmed!",
+      "sending": "Processing your payment…",
+      "partially_paid": "Partial payment received — contact support.",
+      "finished": "Payment complete.",
+      "failed": "Payment failed. Please try again or contact support.",
+      "refunded": "Payment was refunded.",
+      "expired": "Payment window expired. Please start a new deposit."
     }
   }
 }

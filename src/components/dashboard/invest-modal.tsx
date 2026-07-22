@@ -5,14 +5,17 @@ import { useTranslations } from "next-intl";
 import { AlertTriangle, CheckCircle2, Loader2 } from "lucide-react";
 import Modal from "@/components/ui/modal";
 import { Button } from "@/components/ui/button";
+import DepositQr from "@/components/dashboard/deposit-qr";
+import CopyField from "@/components/dashboard/copy-field";
 import { calculateEstimate } from "@/lib/utils";
-import { createInvestment } from "@/lib/supabase/investments";
+import { useDepositStatus } from "@/lib/supabase/use-deposit-status";
+import { payableCurrencies } from "@/lib/nowpayments/currencies";
 import type { AssetDetail } from "@/types/investment";
 
 const formatCurrency = (value: number) =>
   `$${value.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 
-type Step = "amount" | "confirm" | "success" | "error";
+type Step = "amount" | "currency" | "deposit" | "success" | "error";
 
 interface InvestModalProps {
   open: boolean;
@@ -24,37 +27,75 @@ const InvestModal = ({ open, onClose, asset }: InvestModalProps) => {
   const t = useTranslations("Invest");
   const [step, setStep] = useState<Step>("amount");
   const [amountInput, setAmountInput] = useState(String(asset.minInvestment));
+  const [payCurrency, setPayCurrency] = useState(payableCurrencies[0].code);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [depositId, setDepositId] = useState<string | null>(null);
+  const [payAddress, setPayAddress] = useState<string | null>(null);
+  const [payAmount, setPayAmount] = useState<number | null>(null);
 
   const amount = parseFloat(amountInput) || 0;
   const isValidAmount =
     amount >= asset.minInvestment && amount <= asset.maxInvestment;
   const estimate = calculateEstimate(amount, asset);
+  const depositStatus = useDepositStatus(depositId);
 
   const handleClose = () => {
     onClose();
     setStep("amount");
     setAmountInput(String(asset.minInvestment));
+    setPayCurrency(payableCurrencies[0].code);
     setError(null);
+    setDepositId(null);
+    setPayAddress(null);
+    setPayAmount(null);
   };
 
-  const handleConfirm = async () => {
+  const handleCreateDeposit = async () => {
     setIsSubmitting(true);
-    const result = await createInvestment({
-      assetSymbol: asset.symbol,
-      amount,
-    });
-    setIsSubmitting(false);
+    setError(null);
 
-    if (!result.success) {
-      setError(result.error ?? t("genericError"));
+    try {
+      const response = await fetch("/api/deposits/create", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          assetSymbol: asset.symbol,
+          amount,
+          payCurrency,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(data.error ?? t("genericError"));
+        setStep("error");
+        return;
+      }
+
+      setDepositId(data.depositId);
+      setPayAddress(data.payAddress);
+      setPayAmount(data.payAmount);
+      setStep("deposit");
+    } catch {
+      setError(t("genericError"));
       setStep("error");
-      return;
+    } finally {
+      setIsSubmitting(false);
     }
-
-    setStep("success");
   };
+
+  if (step === "deposit" && depositStatus === "confirmed") {
+    setStep("success");
+  }
+  if (
+    step === "deposit" &&
+    (depositStatus === "failed" || depositStatus === "expired")
+  ) {
+    setError(t(`depositStatus.${depositStatus}`));
+    setStep("error");
+  }
 
   return (
     <Modal
@@ -108,7 +149,7 @@ const InvestModal = ({ open, onClose, asset }: InvestModalProps) => {
           </div>
 
           <Button
-            onClick={() => setStep("confirm")}
+            onClick={() => setStep("currency")}
             disabled={!isValidAmount}
             className="w-full cursor-pointer"
           >
@@ -117,43 +158,26 @@ const InvestModal = ({ open, onClose, asset }: InvestModalProps) => {
         </div>
       )}
 
-      {step === "confirm" && (
+      {step === "currency" && (
         <div className="flex flex-col gap-4">
-          <div className="rounded-lg border border-border bg-surface-elevated p-4">
-            <div className="flex items-center justify-between text-sm">
-              <span className="text-foreground-muted">{t("asset")}</span>
-              <span className="font-medium">
-                {asset.symbol} · {t(`riskTier.${asset.riskTier}`)}
-              </span>
-            </div>
-            <div className="mt-2 flex items-center justify-between text-sm">
-              <span className="text-foreground-muted">{t("amount")}</span>
-              <span className="font-medium">{formatCurrency(amount)}</span>
-            </div>
-            <div className="mt-2 flex items-center justify-between text-sm">
-              <span className="text-foreground-muted">
-                {t("performanceFee")}
-              </span>
-              <span className="font-medium">
-                {asset.performanceFeePercent}%
-              </span>
-            </div>
-            <div className="mt-2 flex items-center justify-between text-sm">
-              <span className="text-foreground-muted">
-                {t("estimatedNetReturn")}
-              </span>
-              <span className="font-medium text-success">
-                {formatCurrency(estimate.estimatedNetReturnLow)} –{" "}
-                {formatCurrency(estimate.estimatedNetReturnHigh)}
-              </span>
-            </div>
-          </div>
+          <p className="text-sm text-foreground-muted">
+            {t("chooseCurrencyBody")}
+          </p>
 
-          <div className="flex items-start gap-2 rounded-lg border border-primary/30 bg-primary/10 px-3 py-2.5">
-            <AlertTriangle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" />
-            <p className="text-xs text-foreground-muted">
-              {t("confirmRiskNote")}
-            </p>
+          <div className="flex flex-col gap-2">
+            {payableCurrencies.map((currency) => (
+              <button
+                key={currency.code}
+                onClick={() => setPayCurrency(currency.code)}
+                className={`flex items-center justify-between rounded-lg border px-4 py-2.5 text-sm transition-colors cursor-pointer ${
+                  payCurrency === currency.code
+                    ? "border-primary bg-primary/10 font-medium text-primary"
+                    : "border-border text-foreground-muted hover:bg-surface-elevated"
+                }`}
+              >
+                {currency.label}
+              </button>
+            ))}
           </div>
 
           <div className="flex gap-3">
@@ -164,7 +188,7 @@ const InvestModal = ({ open, onClose, asset }: InvestModalProps) => {
               {t("back")}
             </button>
             <Button
-              onClick={handleConfirm}
+              onClick={handleCreateDeposit}
               disabled={isSubmitting}
               className="flex-1 cursor-pointer"
             >
@@ -174,9 +198,47 @@ const InvestModal = ({ open, onClose, asset }: InvestModalProps) => {
                   {t("processing")}
                 </span>
               ) : (
-                t("confirmInvest")
+                t("continue")
               )}
             </Button>
+          </div>
+        </div>
+      )}
+
+      {step === "deposit" && payAddress && (
+        <div className="flex flex-col gap-4">
+          <DepositQr value={payAddress} />
+
+          <div>
+            <p className="text-xs uppercase tracking-wide text-foreground-muted">
+              {t("sendExactly")}
+            </p>
+            <p className="mt-1 text-lg font-semibold">
+              {payAmount} {payCurrency.toUpperCase()}
+            </p>
+          </div>
+
+          <div>
+            <p className="text-xs uppercase tracking-wide text-foreground-muted">
+              {t("depositAddress")}
+            </p>
+            <div className="mt-1.5">
+              <CopyField value={payAddress} />
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2.5 rounded-lg border border-border bg-surface-elevated px-3 py-2.5">
+            <Loader2 className="h-4 w-4 shrink-0 animate-spin text-primary" />
+            <p className="text-xs text-foreground-muted">
+              {t(`depositStatus.${depositStatus}`)}
+            </p>
+          </div>
+
+          <div className="flex items-start gap-2 rounded-lg border border-primary/30 bg-primary/10 px-3 py-2.5">
+            <AlertTriangle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" />
+            <p className="text-xs text-foreground-muted">
+              {t("depositRiskNote")}
+            </p>
           </div>
         </div>
       )}
