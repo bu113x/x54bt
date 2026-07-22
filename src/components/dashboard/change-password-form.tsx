@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import PasswordField from "@/components/auth/password-field";
 import SettingsSection from "@/components/dashboard/settings";
-import { createClient, supabase } from "@/lib/supabase/client";
+import { supabase } from "@/lib/supabase/client";
 
 const ChangePasswordForm = () => {
   const t = useTranslations("Account");
