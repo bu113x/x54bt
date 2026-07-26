@@ -6,7 +6,6 @@ import {
   ChartArea,
 } from "lucide-react";
 import { getTranslations } from "next-intl/server";
-import RiskDisclosureBanner from "@/components/dashboard/risk-disclosure-banner";
 import StatCard from "@/components/dashboard/stat-card";
 import PortfolioChart from "@/components/dashboard/portfolio-chart";
 import HoldingsBreakdown from "@/components/dashboard/holdings-breakdown";

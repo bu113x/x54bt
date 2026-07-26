@@ -1,5 +1,4 @@
 import { getTranslations } from "next-intl/server";
-import RiskDisclosureBanner from "@/components/dashboard/risk-disclosure-banner";
 import { getExplorableAssets } from "@/lib/supabase/queries/asset";
 import ExplorePageClient from "@/components/dashboard/explore-page-client";
 

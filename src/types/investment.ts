@@ -47,8 +47,8 @@ export interface RiskTierInfo {
   tier: RiskTier;
   label: string;
   description: string;
-  historicalRangeLabel: string; // e.g. "6% – 14% / mo, historical"
-  performanceFeePercent: number; // platform's cut of realized profit on this tier
+  historicalRangeLabel: string; // e.g. "6% – 14%"
+  performanceFeePercent: number;
 }
 
 export interface ExplorableAsset {
@@ -59,7 +59,7 @@ export interface ExplorableAsset {
   price: number;
   changePercent24h: number;
   riskTier: RiskTier;
-  historicalRangeLabel: string; // e.g. "8% – 16% / mo, historical"
+  historicalRangeLabel: string; // e.g. "8% – 16%"
   performanceFeePercent: number;
   minInvestment: number;
   sparkline: number[];
@@ -126,12 +126,28 @@ export interface AssetDetail {
   strategyDescription: string;
 }
 
-export interface InvestmentEstimate {
-  amount: number;
-  estimatedGrossReturnLow: number;
-  estimatedGrossReturnHigh: number;
-  estimatedFeeLow: number;
-  estimatedFeeHigh: number;
-  estimatedNetReturnLow: number;
-  estimatedNetReturnHigh: number;
+export interface InvestmentPlan {
+  id: string;
+  slug: string;
+  name: string;
+  minDeposit: number;
+  durationDays: number;
+  expectedReturn: number; // e.g. 12 for 12%
+}
+
+export interface Plan {
+  id: string;
+  slug: string;
+  name: string;
+  min_deposit: number;
+  duration_days: number;
+  expected_return: number; // e.g. 12 for 12%
+}
+
+export interface EstimateInput {
+  minInvestment: number;
+  maxInvestment: number;
+  historicalRangeLow: number; // monthly %, e.g. 8 for 8%
+  historicalRangeHigh: number; // monthly %, e.g. 16 for 16%
+  performanceFeePercent: number;
 }

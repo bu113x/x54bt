@@ -1,11 +1,11 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
-import RiskDisclosureBanner from "@/components/dashboard/risk-disclosure-banner";
 import AssetPriceChart from "@/components/dashboard/asset-price-chart";
 import AssetStatsGrid from "@/components/dashboard/asset-stats-grid";
 import AssetDetailActions from "@/components/dashboard/asset-detail-actions";
 import { getAssetBySymbol } from "@/lib/supabase/queries/asset";
+import { getPlans } from "@/lib/supabase/queries/plan";
 
 const formatPrice = (value: number) =>
   `$${value.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
@@ -18,6 +18,7 @@ const AssetDetailPage = async ({
   const { symbol } = await params;
   const t = await getTranslations("AssetDetail");
   const asset = await getAssetBySymbol(symbol);
+  const plans = await getPlans();
 
   if (!asset) notFound();
 
@@ -48,7 +49,7 @@ const AssetDetailPage = async ({
           </div>
         </div>
 
-        <AssetDetailActions asset={asset} />
+        <AssetDetailActions asset={asset} plans={plans} />
       </div>
 
       <div className="rounded-card border border-border bg-surface p-6">

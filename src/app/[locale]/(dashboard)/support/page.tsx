@@ -1,5 +1,4 @@
 import { useTranslations } from "next-intl";
-import RiskDisclosureBanner from "@/components/dashboard/risk-disclosure-banner";
 import FaqList from "@/components/support/faq-list";
 import SupportChannelCard from "@/components/support/support-channel-card";
 import { mockFaqItems, mockSupportChannels } from "@/lib/content/dashboard";

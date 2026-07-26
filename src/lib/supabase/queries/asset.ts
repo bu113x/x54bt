@@ -19,8 +19,7 @@ interface AssetRow {
   strategy_description: string | null;
 }
 
-const formatRangeLabel = (low: number, high: number) =>
-  `${low}% – ${high}% / mo, historical`;
+const formatRangeLabel = (low: number, high: number) => `${low}% – ${high}%`;
 
 export const getExplorableAssets = async (): Promise<ExplorableAsset[]> => {
   const supabase = await createClient();

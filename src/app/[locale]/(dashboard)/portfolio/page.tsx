@@ -1,6 +1,5 @@
 import { getTranslations } from "next-intl/server";
 import { Wallet, TrendingUp, Layers } from "lucide-react";
-import RiskDisclosureBanner from "@/components/dashboard/risk-disclosure-banner";
 import StatCard from "@/components/dashboard/stat-card";
 import AllocationBar from "@/components/dashboard/allocation-bar";
 import PositionsTable from "@/components/dashboard/positions-table";

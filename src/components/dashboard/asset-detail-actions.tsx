@@ -4,9 +4,15 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import InvestModal from "@/components/dashboard/invest-modal";
-import type { AssetDetail } from "@/types/investment";
+import type { AssetDetail, InvestmentPlan } from "@/types/investment";
 
-const AssetDetailActions = ({ asset }: { asset: AssetDetail }) => {
+const AssetDetailActions = ({
+  asset,
+  plans,
+}: {
+  asset: AssetDetail;
+  plans: InvestmentPlan[];
+}) => {
   const t = useTranslations("AssetDetail");
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -20,6 +26,7 @@ const AssetDetailActions = ({ asset }: { asset: AssetDetail }) => {
         open={modalOpen}
         onClose={() => setModalOpen(false)}
         asset={asset}
+        plans={plans}
       />
     </>
   );

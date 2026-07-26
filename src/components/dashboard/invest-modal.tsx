@@ -7,25 +7,26 @@ import Modal from "@/components/ui/modal";
 import { Button } from "@/components/ui/button";
 import DepositQr from "@/components/dashboard/deposit-qr";
 import CopyField from "@/components/dashboard/copy-field";
-import { calculateEstimate } from "@/lib/utils";
 import { useDepositStatus } from "@/lib/supabase/use-deposit-status";
 import { payableCurrencies } from "@/lib/nowpayments/currencies";
-import type { AssetDetail } from "@/types/investment";
+import type { AssetDetail, InvestmentPlan } from "@/types/investment";
 
 const formatCurrency = (value: number) =>
   `$${value.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 
-type Step = "amount" | "currency" | "deposit" | "success" | "error";
+type Step = "plan" | "amount" | "currency" | "deposit" | "success" | "error";
 
 interface InvestModalProps {
   open: boolean;
   onClose: () => void;
   asset: AssetDetail;
+  plans: InvestmentPlan[];
 }
 
-const InvestModal = ({ open, onClose, asset }: InvestModalProps) => {
+const InvestModal = ({ open, onClose, asset, plans }: InvestModalProps) => {
   const t = useTranslations("Invest");
-  const [step, setStep] = useState<Step>("amount");
+  const [step, setStep] = useState<Step>("plan");
+  const [selectedPlan, setSelectedPlan] = useState<InvestmentPlan | null>(null);
   const [amountInput, setAmountInput] = useState(String(asset.minInvestment));
   const [payCurrency, setPayCurrency] = useState(payableCurrencies[0].code);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -35,14 +36,19 @@ const InvestModal = ({ open, onClose, asset }: InvestModalProps) => {
   const [payAmount, setPayAmount] = useState<number | null>(null);
 
   const amount = parseFloat(amountInput) || 0;
-  const isValidAmount =
-    amount >= asset.minInvestment && amount <= asset.maxInvestment;
-  const estimate = calculateEstimate(amount, asset);
+
+  const effectiveMin = selectedPlan
+    ? Math.max(asset.minInvestment, selectedPlan.minDeposit)
+    : asset.minInvestment;
+
+  const isValidAmount = amount >= effectiveMin && amount <= asset.maxInvestment;
+
   const depositStatus = useDepositStatus(depositId);
 
   const handleClose = () => {
     onClose();
-    setStep("amount");
+    setStep("plan");
+    setSelectedPlan(null);
     setAmountInput(String(asset.minInvestment));
     setPayCurrency(payableCurrencies[0].code);
     setError(null);
@@ -51,7 +57,14 @@ const InvestModal = ({ open, onClose, asset }: InvestModalProps) => {
     setPayAmount(null);
   };
 
+  const handleSelectPlan = (plan: InvestmentPlan) => {
+    setSelectedPlan(plan);
+    setAmountInput(String(Math.max(asset.minInvestment, plan.minDeposit)));
+    setStep("amount");
+  };
+
   const handleCreateDeposit = async () => {
+    if (!selectedPlan) return;
     setIsSubmitting(true);
     setError(null);
 
@@ -61,6 +74,7 @@ const InvestModal = ({ open, onClose, asset }: InvestModalProps) => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           assetSymbol: asset.symbol,
+          planSlug: selectedPlan.slug,
           amount,
           payCurrency,
         }),
@@ -103,8 +117,45 @@ const InvestModal = ({ open, onClose, asset }: InvestModalProps) => {
       onClose={handleClose}
       title={t(`title.${step}`, { symbol: asset.symbol })}
     >
-      {step === "amount" && (
+      {step === "plan" && (
         <div className="flex flex-col gap-4">
+          <p className="text-sm text-foreground-muted">{t("choosePlanBody")}</p>
+
+          <div className="flex flex-col gap-2">
+            {plans.map((plan) => (
+              <button
+                key={plan.slug}
+                onClick={() => handleSelectPlan(plan)}
+                className="flex flex-col gap-0.5 rounded-lg border border-border px-4 py-3 text-left transition-colors hover:border-primary hover:bg-primary/5 cursor-pointer"
+              >
+                <span className="flex items-center justify-between">
+                  <span className="text-sm font-medium">{plan.name}</span>
+                  <span className="text-xs text-foreground-muted">
+                    {t("planDuration", { days: plan.durationDays })}
+                  </span>
+                </span>
+                <span className="text-xs text-foreground-muted">
+                  {t("planMinDeposit", {
+                    amount: formatCurrency(
+                      Math.max(asset.minInvestment, plan.minDeposit),
+                    ),
+                  })}
+                </span>
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {step === "amount" && selectedPlan && (
+        <div className="flex flex-col gap-4">
+          <button
+            onClick={() => setStep("plan")}
+            className="self-start text-xs text-foreground-muted hover:text-foreground cursor-pointer"
+          >
+            {t("changePlan", { plan: selectedPlan.name })}
+          </button>
+
           <div>
             <label className="text-sm font-medium">{t("amountLabel")}</label>
             <div className="relative mt-1.5">
@@ -116,13 +167,13 @@ const InvestModal = ({ open, onClose, asset }: InvestModalProps) => {
                 value={amountInput}
                 onChange={(e) => setAmountInput(e.target.value)}
                 className="w-full rounded-lg border border-border bg-background py-2.5 pl-7 pr-3 text-sm outline-none focus:border-primary"
-                min={asset.minInvestment}
+                min={effectiveMin}
                 max={asset.maxInvestment}
               />
             </div>
             <p className="mt-1.5 text-xs text-foreground-muted">
               {t("minMax", {
-                min: formatCurrency(asset.minInvestment),
+                min: formatCurrency(effectiveMin),
                 max: formatCurrency(asset.maxInvestment),
               })}
             </p>
@@ -131,22 +182,23 @@ const InvestModal = ({ open, onClose, asset }: InvestModalProps) => {
           {isValidAmount && (
             <div className="rounded-lg border border-border bg-surface-elevated p-4">
               <p className="text-xs uppercase tracking-wide text-foreground-muted">
-                {t("estimatedReturn")}
+                {t("estimatedReturn", { days: selectedPlan.durationDays })}
               </p>
-              <p className="mt-1 text-sm font-medium">
-                {formatCurrency(estimate.estimatedNetReturnLow)} –{" "}
-                {formatCurrency(estimate.estimatedNetReturnHigh)}
+              <p className="my-2 font-semibold">
+                {selectedPlan.expectedReturn * 100}% (
+                {selectedPlan.expectedReturn}X)
               </p>
               <p className="mt-1 text-xs text-foreground-muted">
-                {t("feeNote", { fee: asset.performanceFeePercent })}
+                {t("returnBreakdown", {
+                  expectedProfit: (selectedPlan.expectedReturn - 1) * 100,
+                  expectedReturn: selectedPlan.expectedReturn * 100,
+                })}
+              </p>
+              <p className="mt-1 text-xs text-foreground-muted">
+                {t("estimateGuaranteed")}
               </p>
             </div>
           )}
-
-          <div className="flex items-start gap-2 rounded-lg border border-primary/30 bg-primary/10 px-3 py-2.5">
-            <AlertTriangle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" />
-            <p className="text-xs text-foreground-muted">{t("riskNote")}</p>
-          </div>
 
           <Button
             onClick={() => setStep("currency")}

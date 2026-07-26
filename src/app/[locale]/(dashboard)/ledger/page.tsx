@@ -1,5 +1,4 @@
 import { getTranslations } from "next-intl/server";
-import RiskDisclosureBanner from "@/components/dashboard/risk-disclosure-banner";
 import LedgerFilters from "@/components/dashboard/ledger-filters";
 import LedgerTable from "@/components/dashboard/ledger-table";
 import { getLedgerTransactions } from "@/lib/supabase/queries/ledger";
