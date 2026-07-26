@@ -9,7 +9,11 @@ const nowpaymentsFetch = async <T>(
   path: string,
   init: RequestInit = {},
 ): Promise<T> => {
-  const response = await fetch(`${baseUrl}${path}`, {
+  const normalizedBase = baseUrl.replace(/\/+$/, "");
+  const normalizedPath = path.replace(/^\/+/, "");
+  console.log(`NOWPayments request: ${normalizedBase}/${normalizedPath}`);
+
+  const response = await fetch(`${normalizedBase}/${normalizedPath}`, {
     ...init,
     headers: {
       "x-api-key": apiKey ?? "",
@@ -64,8 +68,8 @@ export interface CreatePaymentInput {
   order_id: string;
   order_description: string;
   ipn_callback_url: string;
-  payout_currency?: string;
-  payout_address?: string;
+  // payout_currency?: string;
+  // payout_address?: string;
 }
 
 export interface CreatePaymentResponse {

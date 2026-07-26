@@ -68,8 +68,8 @@ export async function POST(request: Request) {
       order_id: orderId,
       order_description: `Investment in ${asset.symbol}`,
       ipn_callback_url: `${process.env.NEXT_PUBLIC_APP_URL}/api/webhooks/nowpayments`,
-      payout_currency: process.env.TRADING_WALLET_PAYOUT_CURRENCY,
-      payout_address: process.env.TRADING_WALLET_ADDRESS,
+      // payout_currency: process.env.TRADING_WALLET_PAYOUT_CURRENCY,
+      // payout_address: process.env.TRADING_WALLET_ADDRESS,
     });
 
     const { data: deposit, error: insertError } = await supabase
