@@ -46,6 +46,7 @@ const verifySignature = (
 export async function POST(request: Request) {
   const signature = request.headers.get("x-nowpayments-sig");
   const rawBody = await request.json();
+  console.log("Webhook received from NOWPayments:", rawBody);
 
   if (!signature || !verifySignature(rawBody, signature)) {
     console.error("Invalid NOWPayments IPN signature");
