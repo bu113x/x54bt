@@ -31,7 +31,7 @@ const SignUp = () => {
       email,
       password,
       options: {
-        data: { name },
+        data: { full_name: name },
         emailRedirectTo: `${process.env.NEXT_PUBLIC_APP_URL}/auth/callback`,
       },
     });
