@@ -88,5 +88,5 @@ export default async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!api|trpc|_next|_vercel|.*\\..*).*)"],
+  matcher: ["/((?!api|auth/callback|trpc|_next|_vercel|.*\\..*).*)"],
 };
