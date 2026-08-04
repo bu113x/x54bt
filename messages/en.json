@@ -461,5 +461,14 @@
       "refunded": "Payment was refunded.",
       "expired": "Payment window expired. Please start a new deposit."
     }
+  },
+  "NotFound": {
+    "ticker": "Symbol",
+    "delisted": "Delisted",
+    "tickerNote": "This page stopped trading and was pulled from the listing.",
+    "heading": "This page delisted.",
+    "subheading": "The page you're looking for isn't here — check the URL, or head back to your portfolio.",
+    "primaryCta": "Back to overview",
+    "secondaryCta": "Go to homepage"
   }
 }

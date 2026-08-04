@@ -462,5 +462,14 @@
       "refunded": "Le paiement a été remboursé.",
       "expired": "Le délai de paiement a expiré. Veuillez commencer un nouveau dépôt."
     }
+  },
+  "NotFound": {
+    "ticker": "Symbole",
+    "delisted": "Radié",
+    "tickerNote": "Cette page a cessé d'être négociée et a été retirée de la cote.",
+    "heading": "Cette page a été radiée.",
+    "subheading": "La page que vous cherchez n'est pas ici — vérifiez l'URL, ou retournez à votre portefeuille.",
+    "primaryCta": "Retour à l'aperçu",
+    "secondaryCta": "Aller à l'accueil"
   }
 }
