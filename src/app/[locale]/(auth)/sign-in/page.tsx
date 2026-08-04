@@ -34,6 +34,20 @@ const SignIn = () => {
     setIsSubmitting(false);
 
     if (signInError) {
+      if (signInError.code === "email_not_confirmed") {
+        const { error: resendError } = await supabase.auth.resend({
+          type: "signup",
+          email,
+          options: {
+            emailRedirectTo: `${process.env.NEXT_PUBLIC_APP_URL}/auth/callback`,
+          },
+        });
+
+        const params = new URLSearchParams({ email });
+        params.set(resendError ? "error" : "resent", "1");
+        router.push(`/verify-email?${params.toString()}`);
+        return;
+      }
       setError(signInError.message ?? t("genericError"));
       return;
     }

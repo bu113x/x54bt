@@ -226,6 +226,8 @@
     "badge": "Vérifiez votre email",
     "checkInboxTitle": "Vérifiez votre boîte de réception",
     "checkInboxSubtitle": "Nous avons envoyé un lien de vérification à votre adresse email.",
+    "resentTitle": "Nouveau lien envoyé",
+    "resentSubtitle": "Nous avons envoyé un nouveau lien de vérification dans votre boîte de réception. Il expirera bientôt, alors ouvrez-le rapidement.",
     "noEmail": "Pas encore inscrit ?",
     "backToSignup": "Créer un compte",
     "errorTitle": "Lien de vérification invalide ou expiré",

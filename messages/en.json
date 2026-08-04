@@ -226,6 +226,8 @@
     "badge": "Verify your email",
     "checkInboxTitle": "Check your inbox",
     "checkInboxSubtitle": "We've sent a verification link to your email address.",
+    "resentTitle": "New link sent",
+    "resentSubtitle": "We've sent a fresh verification link to your inbox. It'll expire soon, so open it right away.",
     "noEmail": "Didn't sign up yet?",
     "backToSignup": "Create an account",
     "errorTitle": "Verification link invalid or expired",

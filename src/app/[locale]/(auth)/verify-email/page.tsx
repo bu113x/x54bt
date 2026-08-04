@@ -13,6 +13,8 @@ const VerifyEmail = () => {
   const t = useTranslations("VerifyEmail");
   const searchParams = useSearchParams();
   const error = searchParams.get("error");
+  const emailParam = searchParams.get("email") ?? "";
+  const resent = searchParams.get("resent") === "1";
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<"idle" | "sent" | "error">("idle");
@@ -49,6 +51,7 @@ const VerifyEmail = () => {
             type="email"
             label={t("emailLabel")}
             placeholder={t("emailPlaceholder")}
+            defaultValue={emailParam}
             autoComplete="email"
             required
           />
@@ -74,8 +77,8 @@ const VerifyEmail = () => {
   return (
     <AuthCard
       eyebrow={t("badge")}
-      title={t("checkInboxTitle")}
-      subtitle={t("checkInboxSubtitle")}
+      title={resent ? t("resentTitle") : t("checkInboxTitle")}
+      subtitle={resent ? t("resentSubtitle") : t("checkInboxSubtitle")}
     >
       <p className="text-sm text-foreground-muted">
         {t("noEmail")}{" "}
