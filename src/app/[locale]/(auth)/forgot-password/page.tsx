@@ -21,7 +21,6 @@ const ForgotPassword = () => {
     const formData = new FormData(e.currentTarget);
     const email = String(formData.get("email") ?? "");
     const redirectTo = `${process.env.NEXT_PUBLIC_APP_URL}/auth/callback?next=/reset-password`;
-    console.log("Redirecting to:", redirectTo);
 
     setIsSubmitting(true);
     const supabase = createClient();
