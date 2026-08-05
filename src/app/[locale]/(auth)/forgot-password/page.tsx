@@ -7,12 +7,14 @@ import { Button } from "@/components/ui/button";
 import AuthCard from "@/components/auth/auth-card";
 import FormField from "@/components/auth/form-field";
 import { createClient } from "@/lib/supabase/client";
+import { useLocale } from "next-intl";
 
 const ForgotPassword = () => {
   const t = useTranslations("ForgotPassword");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [sent, setSent] = useState(false);
+  const locale = useLocale();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -20,7 +22,7 @@ const ForgotPassword = () => {
 
     const formData = new FormData(e.currentTarget);
     const email = String(formData.get("email") ?? "");
-    const redirectTo = `${process.env.NEXT_PUBLIC_APP_URL}/auth/callback?next=/reset-password`;
+    const redirectTo = `${process.env.NEXT_PUBLIC_APP_URL}/auth/callback?next=/${locale}/reset-password`;
 
     setIsSubmitting(true);
     const supabase = createClient();
