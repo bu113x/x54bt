@@ -35,8 +35,6 @@ const getFirstSegmentAfterLocale = (pathname: string, localePrefix: string) => {
 };
 
 export default async function middleware(request: NextRequest) {
-  // Next-intl first — it handles locale detection/redirects and
-  // returns the response object we'll attach Supabase's session cookies to.
   const response = intlMiddleware(request);
 
   const supabase = createServerClient(
@@ -59,8 +57,6 @@ export default async function middleware(request: NextRequest) {
     },
   );
 
-  // Refreshes the session if the access token is expired — required so
-  // Server Components downstream see a valid user.
   const {
     data: { user },
   } = await supabase.auth.getUser();
