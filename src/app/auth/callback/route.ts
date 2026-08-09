@@ -12,7 +12,9 @@ export async function GET(request: Request) {
     if (!error) {
       return NextResponse.redirect(`${origin}${next}`);
     }
+
+    return NextResponse.redirect(`${origin}/verify-email?error=1`);
   }
 
-  return NextResponse.redirect(`${origin}/verify-email?error=1`);
+  return NextResponse.redirect(`${origin}${next}`);
 }
