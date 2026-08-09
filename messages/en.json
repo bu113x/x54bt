@@ -266,7 +266,8 @@
     "submitting": "Resetting…",
     "missingToken": "This reset link is invalid. Please request a new one.",
     "passwordMismatch": "Passwords don't match.",
-    "genericError": "Something went wrong. Please try again."
+    "genericError": "Something went wrong. Please try again.",
+    "verifying": "Verifying your link…"
   },
   "RiskDisclosure": {
     "message": "Investing and crypto trading carry risk, including possible loss of your principal. Past performance shown here is historical and does not guarantee future results. Only invest funds you can afford to lose."

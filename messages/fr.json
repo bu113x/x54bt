@@ -266,7 +266,8 @@
     "submitting": "Réinitialisation…",
     "missingToken": "Ce lien de réinitialisation est invalide. Veuillez en demander un nouveau.",
     "passwordMismatch": "Les mots de passe ne correspondent pas.",
-    "genericError": "Une erreur est survenue. Veuillez réessayer."
+    "genericError": "Une erreur est survenue. Veuillez réessayer.",
+    "verifying": "Vérification du lien…"
   },
   "RiskDisclosure": {
     "message": "L'investissement et le trading de cryptomonnaies comportent des risques, y compris la perte possible de votre capital. Les performances passées présentées ici sont historiques et ne garantissent pas les résultats futurs. N'investissez que les fonds que vous pouvez vous permettre de perdre."
