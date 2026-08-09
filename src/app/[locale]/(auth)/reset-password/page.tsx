@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
@@ -11,9 +12,38 @@ import { createClient } from "@/lib/supabase/client";
 const ResetPassword = () => {
   const t = useTranslations("ResetPassword");
   const router = useRouter();
+  const searchParams = useSearchParams();
 
+  const [isVerifying, setIsVerifying] = useState(true);
+  const [sessionReady, setSessionReady] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const tokenHash = searchParams.get("token_hash");
+    const type = searchParams.get("type");
+
+    const verify = async () => {
+      const supabase = createClient();
+
+      if (tokenHash && type === "recovery") {
+        const { error: verifyError } = await supabase.auth.verifyOtp({
+          type: "recovery",
+          token_hash: tokenHash,
+        });
+        setSessionReady(!verifyError);
+        if (verifyError) setError(t("missingToken"));
+      } else {
+        const { data } = await supabase.auth.getSession();
+        setSessionReady(!!data.session);
+        if (!data.session) setError(t("missingToken"));
+      }
+
+      setIsVerifying(false);
+    };
+
+    verify();
+  }, [searchParams, t]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -30,7 +60,9 @@ const ResetPassword = () => {
 
     setIsSubmitting(true);
     const supabase = createClient();
-    const { error: resetError } = await supabase.auth.updateUser({ password });
+    const { error: resetError } = await supabase.auth.updateUser({
+      password,
+    });
     setIsSubmitting(false);
 
     if (resetError) {
@@ -38,8 +70,32 @@ const ResetPassword = () => {
       return;
     }
 
-    router.push("/sign-in");
+    router.push("/signin");
   };
+
+  if (isVerifying) {
+    return (
+      <AuthCard
+        eyebrow={t("badge")}
+        title={t("heading")}
+        subtitle={t("subheading")}
+      >
+        <p className="text-sm text-foreground-muted">{t("verifying")}</p>
+      </AuthCard>
+    );
+  }
+
+  if (!sessionReady) {
+    return (
+      <AuthCard
+        eyebrow={t("badge")}
+        title={t("heading")}
+        subtitle={t("subheading")}
+      >
+        <p className="text-sm text-danger">{error ?? t("missingToken")}</p>
+      </AuthCard>
+    );
+  }
 
   return (
     <AuthCard
